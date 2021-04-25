@@ -1,0 +1,29 @@
+//Fonts
+%fr {
+	font-family: "Roboto", sans-serif;
+}
+%fm {
+	font-family: "Merriweather", serif;
+}
+%fms {
+	font-family: "Merriweather Sans", sans-serif;
+}
+
+%flex_center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+%flex_align {
+	display: flex;
+	align-items: center;
+}
+%flex_between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+%flex_col {
+	display: flex;
+	flex-direction: column;
+}
