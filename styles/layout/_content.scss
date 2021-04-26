@@ -1,0 +1,16 @@
+.container {
+	width: 100%;
+	padding: 0 12rem;
+	@include w {
+		padding: 0 8rem;
+	}
+	@include x {
+		padding: 0 6rem;
+	}
+	@include c {
+		padding: 0 4rem;
+	}
+	@include v {
+		padding: 0 2rem;
+	}
+}

@@ -5,4 +5,10 @@
 @import "abstracts/variables", "abstracts/placeholders", "abstracts/mixins";
 
 //base
-@import "base/base", "base/typography";
+@import "base/base", "base/typography", "base/icons";
+
+//Components
+@import "components/header", "components/footer", "components/form";
+
+//layout
+@import "layout/content";
