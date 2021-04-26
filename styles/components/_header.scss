@@ -1,0 +1,24 @@
+.header {
+	padding: 1.6rem 0;
+	background-color: $cool-grey-050;
+	.container {
+		@extend %flex_between;
+	}
+	&--navlinks {
+		@extend %flex_align;
+		font-size: 1.6rem;
+	}
+	&--links {
+		font-weight: 500;
+		@include nf {
+			margin-left: 1.6rem;
+		}
+	}
+	&--actions {
+		a {
+			@include nl {
+				margin-right: 1.6rem;
+			}
+		}
+	}
+}
