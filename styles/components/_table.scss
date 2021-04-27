@@ -1,0 +1,42 @@
+.table {
+	display: table;
+	width: 100%;
+	background-color: $white;
+	border-radius: 2rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	&__row {
+		display: table-row;
+		border-radius: 1.2rem;
+		color: $black;
+		transition: all 0.2s;
+		&:nth-child(2n + 1) {
+			background: rgba($neutral200, 0.2);
+		}
+	}
+	&__head {
+		height: 4rem;
+		font-size: 1rem;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		background-color: $primary50 !important;
+		.table__cell {
+			color: $neutral900;
+			&:first-child {
+				border-radius: 2rem 0 0 0;
+			}
+			&:last-child {
+				border-radius: 0 2rem 0 0;
+			}
+		}
+	}
+	&__cell {
+		display: table-cell;
+		vertical-align: middle;
+		height: 6.3rem;
+		padding-left: 1.6rem;
+		font-weight: 600;
+		font-size: 1.4rem;
+		color: $neutral600;
+	}
+}
