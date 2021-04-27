@@ -1,0 +1,9 @@
+//Abstract
+@import "abstracts/variables", "abstracts/placeholders", "abstracts/mixins";
+
+//Components
+@import "components/headerAdmin", "components/sidebarAdmin",
+	"components/widgets";
+
+//Pages
+@import "pages/admin";
