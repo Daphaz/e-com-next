@@ -1,0 +1,57 @@
+.widget {
+	@extend %flex_between;
+	background-color: $white;
+	border-radius: 2rem;
+	padding: 1.6rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.4rem;
+		width: 100%;
+	}
+	&__warp {
+		text-align: left;
+	}
+	&__title {
+		@extend %fm;
+		font-size: 2rem;
+		font-weight: 900;
+		line-height: 1.75;
+	}
+	&__price {
+		color: $primary400;
+		font-weight: bold;
+		font-size: 2.4rem;
+	}
+	&__percent {
+		font-size: 1.6rem;
+		font-weight: bold;
+		line-height: 1.75;
+		span {
+			font-size: 1.2rem;
+			line-height: 1.75;
+			color: $neutral300;
+		}
+	}
+	&__icon {
+		@extend %flex_center;
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+		background-color: $primary50;
+		svg {
+			fill: $primary400;
+			width: 48px;
+			height: 48px;
+		}
+	}
+	&__positive {
+		color: $green300;
+		fill: $green300;
+	}
+	&__negative {
+		color: $red300;
+		fill: $red300;
+	}
+}
