@@ -1,9 +1,12 @@
 //Abstract
 @import "abstracts/variables", "abstracts/placeholders", "abstracts/mixins";
 
+//Base
+@import "base/badge";
+
 //Components
 @import "components/headerAdmin", "components/sidebarAdmin",
-	"components/widgets";
+	"components/widgets", "components/table";
 
 //Pages
 @import "pages/admin";

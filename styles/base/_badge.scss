@@ -1,0 +1,17 @@
+.badge {
+	padding: 0.4rem 0.8rem;
+	border-radius: 999px;
+	font-size: 1.2rem;
+	&__green {
+		background-color: $green100;
+	}
+	&__red {
+		background-color: $red100;
+	}
+	&__yellow {
+		background-color: $yellow100;
+	}
+	&__blue {
+		background-color: $accent100;
+	}
+}
