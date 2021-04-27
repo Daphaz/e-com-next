@@ -1,5 +1,5 @@
 .footer {
-	background-color: $cool-grey-050;
+	background-color: $neutral50;
 	.container {
 		@extend %flex_col;
 	}
@@ -31,7 +31,7 @@
 	&--subtitle {
 		line-height: 1.3;
 		margin-bottom: 0.8rem;
-		color: $cool-grey-500;
+		color: $neutral500;
 	}
 	.form--line {
 		position: relative;
@@ -49,7 +49,7 @@
 			right: 0;
 			width: 50px;
 			height: 100%;
-			background-color: $orange-vivid-050;
+			background-color: $primary50;
 			.icon--send {
 				transform: rotate(90deg);
 			}
@@ -57,9 +57,9 @@
 	}
 
 	&--bottom {
-		border-top: 2px solid $cool-grey-100;
+		border-top: 2px solid $neutral100;
 		padding: 2.4rem 0;
-		color: $cool-grey-500;
+		color: $neutral500;
 
 		&_right {
 			ul {
