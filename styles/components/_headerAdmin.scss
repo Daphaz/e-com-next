@@ -1,0 +1,74 @@
+.header {
+	@extend %flex_between;
+	height: 96px;
+	background-color: $white;
+	padding: 0 3.2rem;
+}
+.profile {
+	position: relative;
+	margin-left: auto;
+	@extend %flex_center;
+	img {
+		border-radius: 50%;
+		object-fit: cover;
+		border: 1px solid $primary400;
+	}
+	&__warp {
+		margin-left: 1.6rem;
+		text-align: right;
+		h3 {
+			@extend %text;
+			letter-spacing: 0.5px;
+			color: $primary400;
+		}
+		p {
+			letter-spacing: 0.5px;
+			color: $neutral300;
+		}
+	}
+	&__menu {
+		opacity: 0;
+		visibility: hidden;
+		font-size: 1.4rem;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		padding: 1.6rem;
+		border-radius: 5px;
+		min-width: 9.6rem;
+		background-color: $white;
+		box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.08);
+		transition: 0.3s ease;
+		li {
+			@include nl {
+				margin-bottom: 0.8rem;
+			}
+			a {
+				@extend %flex_align;
+				color: $neutral600;
+			}
+			svg {
+				width: 20px;
+				height: 20px;
+				margin-right: 6px;
+				fill: $neutral600;
+			}
+		}
+	}
+}
+
+.menu__active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.icon__chevronDown {
+	cursor: pointer;
+	margin-top: 0.8rem;
+	align-self: flex-start;
+	svg {
+		fill: $neutral500;
+		width: 24px;
+		height: 24px;
+	}
+}

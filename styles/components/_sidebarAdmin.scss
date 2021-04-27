@@ -1,0 +1,82 @@
+.sidebar {
+	padding: 0 3.2rem;
+	@extend %flex_col;
+	justify-content: space-between;
+	width: 340px;
+	height: 100%;
+	position: relative;
+	background-color: $primary300;
+	header,
+	footer {
+		color: $primary50;
+		height: 150px;
+		flex-shrink: 0;
+	}
+	header {
+		padding-top: 1.6rem;
+		a {
+			@extend %subtitle;
+		}
+	}
+	nav {
+		flex-grow: 1;
+		overflow: hidden;
+		ul {
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+			scrollbar-width: thin;
+			&::-webkit-scrollbar {
+				width: 8px;
+				height: 8px;
+				background-color: rgba(255, 255, 255, 0.1);
+				border-radius: 999px;
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 999px;
+				background-color: $primary50;
+			}
+		}
+	}
+	footer {
+		@extend %flex_col;
+		justify-content: center;
+		span {
+			display: block;
+			font-size: 2rem;
+			font-weight: 500;
+			line-height: 1.75;
+		}
+		small {
+			font-size: 1.4rem;
+			font-weight: 400;
+		}
+	}
+}
+
+.navItem {
+	width: 100%;
+	height: 6.3rem;
+	@extend %flex_align;
+	padding-left: 4rem;
+	border-radius: 999px;
+	color: $primary50;
+	font-size: 1.8rem;
+	svg {
+		width: 24px;
+		height: 24px;
+		margin-right: 8px;
+		fill: $primary50;
+	}
+	@include nl {
+		margin-bottom: 2.4rem;
+	}
+}
+
+.navItemActive {
+	background-color: $primary50;
+	color: $primary600;
+	svg {
+		fill: $primary600;
+	}
+}
