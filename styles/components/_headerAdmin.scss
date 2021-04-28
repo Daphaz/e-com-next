@@ -3,6 +3,16 @@
 	height: 96px;
 	background-color: $white;
 	padding: 0 3.2rem;
+	&__menu {
+		display: none;
+		cursor: pointer;
+		width: 3.5rem;
+		height: 3.5rem;
+		fill: $primary500;
+		@include c {
+			display: block;
+		}
+	}
 }
 .profile {
 	position: relative;
@@ -12,6 +22,10 @@
 		border-radius: 50%;
 		object-fit: cover;
 		border: 1px solid $primary400;
+		@include c {
+			width: 3.5rem;
+			height: 3.5rem;
+		}
 	}
 	&__warp {
 		margin-left: 1.6rem;

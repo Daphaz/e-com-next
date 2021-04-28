@@ -2,20 +2,77 @@
 	padding: 0 3.2rem;
 	@extend %flex_col;
 	justify-content: space-between;
-	width: 340px;
-	height: 100%;
+	width: 300px;
 	position: relative;
 	background-color: $primary300;
+	transition: 0.3s;
+	z-index: 2;
+	@include x {
+		width: 130px;
+	}
+	@include c {
+		position: fixed;
+		width: 220px;
+		top: 0;
+		left: -100%;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__bg {
+		visibility: hidden;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.35);
+		transition: 0.3s ease;
+		z-index: 1;
+	}
+
+	&__bg_open {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__open {
+		left: 0;
+	}
+
 	header,
 	footer {
 		color: $primary50;
 		height: 150px;
 		flex-shrink: 0;
 	}
+
+	&__close {
+		cursor: pointer;
+		display: none;
+		position: absolute;
+		top: 0.5rem;
+		right: -2.4rem;
+		width: 48px;
+		height: 48px;
+		svg {
+			fill: $primary50;
+		}
+		@include c {
+			display: block;
+		}
+	}
+
 	header {
+		position: relative;
 		padding-top: 1.6rem;
 		a {
 			@extend %subtitle;
+			@include x {
+				font-size: 2rem;
+			}
+		}
+		@include c {
+			height: 8rem;
 		}
 	}
 	nav {
@@ -46,10 +103,19 @@
 			font-size: 2rem;
 			font-weight: 500;
 			line-height: 1.75;
+			@include x {
+				font-size: 1.6rem;
+			}
 		}
 		small {
 			font-size: 1.4rem;
 			font-weight: 400;
+			@include x {
+				font-size: 1rem;
+			}
+		}
+		@include c {
+			display: none;
 		}
 	}
 }
@@ -67,6 +133,29 @@
 		height: 24px;
 		margin-right: 8px;
 		fill: $primary50;
+	}
+	@include x {
+		justify-content: center;
+		padding-left: 0;
+		border-radius: 50%;
+		span {
+			display: none;
+		}
+		svg {
+			margin-right: 0;
+		}
+	}
+	@include c {
+		padding-left: 2rem;
+		justify-content: flex-start;
+		border-radius: 999px;
+		span {
+			display: block;
+			font-size: 1.4rem;
+		}
+		svg {
+			margin-right: 0.6rem;
+		}
 	}
 	@include nl {
 		margin-bottom: 2.4rem;

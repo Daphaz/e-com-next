@@ -40,3 +40,15 @@
 		color: $neutral600;
 	}
 }
+
+.sm_hide {
+	@include v {
+		display: none;
+	}
+}
+
+.m_hide {
+	@include c {
+		display: none;
+	}
+}
