@@ -21,7 +21,7 @@
 	img {
 		border-radius: 50%;
 		object-fit: cover;
-		border: 1px solid $primary400;
+		border: 1px solid $accent400;
 		@include c {
 			width: 3.5rem;
 			height: 3.5rem;
@@ -33,7 +33,7 @@
 		h3 {
 			@extend %text;
 			letter-spacing: 0.5px;
-			color: $primary400;
+			color: $accent400;
 		}
 		p {
 			letter-spacing: 0.5px;
