@@ -8,18 +8,30 @@ const Orders = () => {
 			<div className={styles.table}>
 				<div className={`${styles.table__row} ${styles.table__head}`}>
 					<div className={styles.table__cell}>Client</div>
-					<div className={styles.table__cell}>Référence</div>
-					<div className={styles.table__cell}>Crée le</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Référence
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						Crée le
+					</div>
 					<div className={styles.table__cell}>Total</div>
-					<div className={styles.table__cell}>Transport</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Transport
+					</div>
 					<div className={styles.table__cell}>Status</div>
 				</div>
 				<div className={styles.table__row}>
 					<div className={styles.table__cell}>Jhon Doe</div>
-					<div className={styles.table__cell}>xshb-shdr-dhez-sore</div>
-					<div className={styles.table__cell}>28 / 04 / 2021</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						xshb-shdr-dhez-sore
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						28 / 04 / 2021
+					</div>
 					<div className={styles.table__cell}>458.95 €</div>
-					<div className={styles.table__cell}>Colissimo</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Colissimo
+					</div>
 					<div className={styles.table__cell}>
 						<span className={`${styles.badge} ${styles.badge__red}`}>
 							Attente
@@ -28,10 +40,16 @@ const Orders = () => {
 				</div>
 				<div className={styles.table__row}>
 					<div className={styles.table__cell}>Jhon Doe</div>
-					<div className={styles.table__cell}>xshb-shdr-dhez-sore</div>
-					<div className={styles.table__cell}>28 / 04 / 2021</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						xshb-shdr-dhez-sore
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						28 / 04 / 2021
+					</div>
 					<div className={styles.table__cell}>458.95 €</div>
-					<div className={styles.table__cell}>Colissimo</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Colissimo
+					</div>
 					<div className={styles.table__cell}>
 						<span className={`${styles.badge} ${styles.badge__green}`}>
 							Terminé
@@ -40,10 +58,16 @@ const Orders = () => {
 				</div>
 				<div className={styles.table__row}>
 					<div className={styles.table__cell}>Jhon Doe</div>
-					<div className={styles.table__cell}>xshb-shdr-dhez-sore</div>
-					<div className={styles.table__cell}>28 / 04 / 2021</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						xshb-shdr-dhez-sore
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						28 / 04 / 2021
+					</div>
 					<div className={styles.table__cell}>458.95 €</div>
-					<div className={styles.table__cell}>Colissimo</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Colissimo
+					</div>
 					<div className={styles.table__cell}>
 						<span className={`${styles.badge} ${styles.badge__yellow}`}>
 							Préparation
@@ -52,10 +76,16 @@ const Orders = () => {
 				</div>
 				<div className={styles.table__row}>
 					<div className={styles.table__cell}>Jhon Doe</div>
-					<div className={styles.table__cell}>xshb-shdr-dhez-sore</div>
-					<div className={styles.table__cell}>28 / 04 / 2021</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						xshb-shdr-dhez-sore
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						28 / 04 / 2021
+					</div>
 					<div className={styles.table__cell}>458.95 €</div>
-					<div className={styles.table__cell}>Colissimo</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Colissimo
+					</div>
 					<div className={styles.table__cell}>
 						<span className={`${styles.badge} ${styles.badge__blue}`}>
 							Livraison
@@ -64,10 +94,16 @@ const Orders = () => {
 				</div>
 				<div className={styles.table__row}>
 					<div className={styles.table__cell}>Jhon Doe</div>
-					<div className={styles.table__cell}>xshb-shdr-dhez-sore</div>
-					<div className={styles.table__cell}>28 / 04 / 2021</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						xshb-shdr-dhez-sore
+					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						28 / 04 / 2021
+					</div>
 					<div className={styles.table__cell}>458.95 €</div>
-					<div className={styles.table__cell}>Colissimo</div>
+					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						Colissimo
+					</div>
 					<div className={styles.table__cell}>
 						<span className={`${styles.badge} ${styles.badge__green}`}>
 							Terminé
