@@ -2,17 +2,28 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import Chevron from "../../public/icons/icon-cheveron-down.svg";
 import Logout from "../../public/icons/icon-door-exit.svg";
+import Menu from "../../public/icons/icon-menu.svg";
 
 const Header = ({ styles }) => {
 	const menu = useRef(null);
 
 	function handleMenu() {
-		console.log(menu.current);
 		menu.current.classList.toggle(styles.menu__active);
+	}
+
+	function openMenu() {
+		const sidebar = document.getElementById("sidebar");
+		const sideBg = document.querySelector(`.${styles.sidebar__bg}`);
+		sidebar.classList.toggle(styles.sidebar__open);
+		sideBg.classList.toggle(styles.sidebar__bg_open);
+		document.body.classList.toggle("is_open");
 	}
 
 	return (
 		<header className={styles.header}>
+			<div className={styles.header__menu} onClick={openMenu}>
+				<Menu />
+			</div>
 			<div className={styles.profile}>
 				<img src="https://via.placeholder.com/55x55" alt="profile image" />
 				<div className={styles.profile__warp}>
