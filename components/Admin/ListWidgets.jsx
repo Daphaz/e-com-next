@@ -40,6 +40,7 @@ const ListWidgets = () => {
 						price={item.price}
 						percent={item.percent}
 						img={item.img}
+						positive={item.positive}
 					/>
 				);
 			})}
