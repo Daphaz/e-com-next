@@ -1,0 +1,35 @@
+.btn {
+	@extend %flex_center;
+	font-size: 1.4rem;
+	padding: 0.8rem 1.2rem;
+	border-radius: 5px;
+	svg {
+		width: 18px;
+		height: 18px;
+		margin-right: 0.6rem;
+		fill: $neutral300;
+	}
+	&__create {
+		background-color: $accent400;
+		color: $primary50;
+		svg {
+			fill: $primary50;
+		}
+	}
+	&__edit {
+		background-color: $yellow400;
+		color: $neutral900;
+		svg {
+			fill: $neutral900 !important;
+			margin-right: 0;
+		}
+	}
+	&__delete {
+		background-color: $red300;
+		color: $neutral900;
+		svg {
+			fill: $neutral900 !important;
+			margin-right: 0;
+		}
+	}
+}
