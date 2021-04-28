@@ -10,6 +10,14 @@
 		h3 {
 			font-size: 2.4rem;
 		}
+		@include v {
+			flex-direction: column;
+			h3 {
+				width: 100%;
+				text-align: left;
+				margin-bottom: 3.2rem;
+			}
+		}
 	}
 	&__row {
 		display: table-row;
@@ -41,11 +49,12 @@
 	&__footer {
 		display: table-footer-group;
 		width: 100%;
-		background-color: $primary50 !important;
-		border-radius: 0 0 2rem;
+		border-bottom-left-radius: 2rem;
+		border-bottom-right-radius: 2rem;
 		.table__cell {
+			background-color: $primary50 !important;
 			&:first-child {
-				border-radius: 0 0 0 2rem;
+				border-bottom-left-radius: 2rem;
 				@extend %flex_align;
 				span {
 					color: $neutral900;
@@ -75,6 +84,17 @@
 			vertical-align: middle;
 			fill: $accent400;
 		}
+		&:last-child {
+			padding-right: 1.6rem;
+			text-align: center;
+			max-width: 80px;
+		}
+		@include v {
+			font-size: 1.2rem;
+			&:last-child {
+				max-width: inherit;
+			}
+		}
 	}
 	&__btns {
 		button {
@@ -94,6 +114,11 @@
 
 .m_hide {
 	@include c {
+		display: none;
+	}
+}
+.l_hide {
+	@include x {
 		display: none;
 	}
 }

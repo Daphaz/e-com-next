@@ -26,6 +26,9 @@
 	&__disabled {
 		background-color: $neutral200;
 		border-radius: 50%;
+		a {
+			cursor: not-allowed;
+		}
 	}
 	&__active {
 		background-color: $accent400;

@@ -7,7 +7,7 @@ const Commandes = () => {
 	return (
 		<Layout>
 			<div className={styles.admin__content}>
-				<Orders commandes />
+				<Orders commandes footer />
 			</div>
 		</Layout>
 	);
