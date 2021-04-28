@@ -1,0 +1,35 @@
+.pagination {
+	@extend %flex_align;
+	justify-content: flex-end;
+	padding-right: 1.8rem;
+	gap: 0.4rem;
+	a {
+		cursor: pointer;
+		@extend %flex_center;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+	}
+	&__prevBtn {
+		@extend %flex_center;
+		background: url("/icons/icon-cheveron-left-circle.svg") no-repeat center;
+		width: 24px;
+		height: 24px;
+		border: 1px solid $accent200;
+		border-radius: 50%;
+	}
+	&__nextBtn {
+		@extend %flex_center;
+		background: url("/icons/icon-cheveron-right-circle.svg") no-repeat center;
+		border: 1px solid $accent200;
+	}
+	&__disabled {
+		background-color: $neutral200;
+		border-radius: 50%;
+	}
+	&__active {
+		background-color: $accent400;
+		color: $white;
+		border-radius: 50%;
+	}
+}
