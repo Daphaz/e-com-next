@@ -26,7 +26,7 @@ const Sidebar = ({ styles }) => {
 			<div className={styles.sidebar__bg}></div>
 			<aside className={styles.sidebar} id="sidebar" ref={side}>
 				<header>
-					<a href="#">E-Shop</a>
+					<a href="/">E-Shop</a>
 					<div className={styles.sidebar__close} onClick={closeSidebar}>
 						<Close />
 					</div>
@@ -44,66 +44,72 @@ const Sidebar = ({ styles }) => {
 								</li>
 							</a>
 						</Link>
-						<Link href="/clients">
+						<Link href="/gestion/clients">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/clients" && styles.navItemActive
+										router.pathname === "/gestion/clients" &&
+										styles.navItemActive
 									}`}>
 									<Client />
 									<span>Clients</span>
 								</li>
 							</a>
 						</Link>
-						<Link href="/commandes">
+						<Link href="/gestion/commandes">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/commandes" && styles.navItemActive
+										router.pathname === "/gestion/commandes" &&
+										styles.navItemActive
 									}`}>
 									<Receipt />
 									<span>Commandes</span>
 								</li>
 							</a>
 						</Link>
-						<Link href="/categories">
+						<Link href="/gestion/categories">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/categories" && styles.navItemActive
+										router.pathname === "/gestion/categories" &&
+										styles.navItemActive
 									}`}>
 									<Sign />
 									<span>Categories</span>
 								</li>
 							</a>
 						</Link>
-						<Link href="/produits">
+						<Link href="/gestion/produits">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/produits" && styles.navItemActive
+										router.pathname === "/gestion/produits" &&
+										styles.navItemActive
 									}`}>
 									<Tag />
 									<span>Produits</span>
 								</li>
 							</a>
 						</Link>
-						<Link href="/transporteur">
+						<Link href="/gestion/transporteur">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/transporteur" && styles.navItemActive
+										router.pathname === "/gestion/transporteur" &&
+										styles.navItemActive
 									}`}>
 									<Carrier />
 									<span>Transports</span>
 								</li>
 							</a>
 						</Link>
-						<Link href="/carousel">
+						<Link href="/gestion/carousel">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/carousel" && styles.navItemActive
+										router.pathname === "/gestion/carousel" &&
+										styles.navItemActive
 									}`}>
 									<Pres />
 									<span>Carousel</span>
