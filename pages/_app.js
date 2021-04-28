@@ -19,6 +19,8 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Head>
 				<link rel="stylesheet" type="text/css" href="/nprogress.css" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta name="Description" content="E-shop node and nextjs" />
 			</Head>
 			<AuthProvider>
 				<Component {...pageProps} />
