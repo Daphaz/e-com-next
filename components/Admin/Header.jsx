@@ -3,6 +3,7 @@ import Link from "next/link";
 import Chevron from "../../public/icons/icon-cheveron-down.svg";
 import Logout from "../../public/icons/icon-door-exit.svg";
 import Menu from "../../public/icons/icon-menu.svg";
+import User from "../../public/icons/icon-user.svg";
 
 const Header = ({ styles }) => {
 	const menu = useRef(null);
@@ -36,7 +37,10 @@ const Header = ({ styles }) => {
 				<ul className={styles.profile__menu} ref={menu}>
 					<li>
 						<Link href="/profile">
-							<a>Profile</a>
+							<a>
+								<User />
+								Profile
+							</a>
 						</Link>
 					</li>
 					<li>
