@@ -2,6 +2,10 @@
 	padding: 0.4rem 0.8rem;
 	border-radius: 999px;
 	font-size: 1.2rem;
+	@include v {
+		font-size: 1rem;
+		padding: 0.2rem 0.4rem;
+	}
 	&__green {
 		background-color: $green100;
 	}
