@@ -132,7 +132,7 @@ const Orders = ({ commandes, footer }) => {
 				return (
 					<div className={styles.table__row} key={order.id}>
 						<div className={styles.table__cell}>{order.client}</div>
-						<div className={`${styles.table__cell} ${styles.m_hide}`}>
+						<div className={`${styles.table__cell} ${styles.xl_hide}`}>
 							{order.reference}
 						</div>
 						<div className={`${styles.table__cell} ${styles.m_hide}`}>
@@ -181,7 +181,7 @@ const Orders = ({ commandes, footer }) => {
 			<div className={styles.table}>
 				<div className={`${styles.table__row} ${styles.table__head}`}>
 					<div className={styles.table__cell}>Client</div>
-					<div className={`${styles.table__cell} ${styles.m_hide}`}>
+					<div className={`${styles.table__cell} ${styles.xl_hide}`}>
 						Référence
 					</div>
 					<div className={`${styles.table__cell} ${styles.m_hide}`}>
@@ -201,7 +201,7 @@ const Orders = ({ commandes, footer }) => {
 							<span>{orders.length}</span>
 							<p>résultats</p>
 						</div>
-						<div className={`${styles.table__cell} ${styles.m_hide}`}></div>
+						<div className={`${styles.table__cell} ${styles.xl_hide}`}></div>
 						<div className={`${styles.table__cell} ${styles.m_hide}`}></div>
 						<div className={styles.table__cell}></div>
 						<div className={styles.table__cell}></div>
