@@ -1,0 +1,24 @@
+.alert {
+	font-size: 1.4rem;
+	padding: 0.8rem;
+	border-radius: 5px;
+	background-color: $white;
+	margin-top: 1.2rem;
+	line-height: 1.25;
+	&__info {
+		background-color: $accent100;
+		color: $neutral900;
+	}
+	&__danger {
+		background-color: $red100;
+		color: $neutral900;
+	}
+	&__sucess {
+		background-color: $green100;
+		color: $neutral900;
+	}
+	&__warning {
+		background-color: $yellow100;
+		color: $neutral900;
+	}
+}

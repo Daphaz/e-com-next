@@ -1,0 +1,35 @@
+.form {
+	max-width: 600px;
+	min-width: 200px;
+	&__group {
+		margin-bottom: 2.4rem;
+	}
+	input {
+		height: 6rem;
+		width: 100%;
+		border-radius: 5px;
+		background-color: $white;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.01);
+		font-size: 1.6rem;
+		padding: 0 1.8rem;
+		@include c {
+			height: 4rem;
+		}
+	}
+	label {
+		display: flex;
+		width: 100%;
+		text-transform: uppercase;
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 1.75;
+	}
+	button[type="submit"] {
+		margin: 1.6rem 0;
+	}
+	&__link {
+		font-size: 1.8rem;
+		text-decoration: underline;
+		color: $accent800;
+	}
+}
