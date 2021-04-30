@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/admin.module.scss";
 import OrderVertical from "../../public/icons/icon-order-vertical.svg";
-import CalendarAdd from "../../public/icons/icon-calendar-add.svg";
+import IconAdd from "../../public/icons/icon-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
@@ -61,7 +61,7 @@ const TransportTable = () => {
 				<h3>Transports</h3>
 				<div className={styles.table__create}>
 					<button className="btn btn__create">
-						<CalendarAdd />
+						<IconAdd />
 						Ajouter un transport
 					</button>
 				</div>
