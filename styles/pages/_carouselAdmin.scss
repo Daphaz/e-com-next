@@ -1,0 +1,25 @@
+.carousel {
+	&__title,
+	&__titleBtn {
+		min-width: 25px;
+		max-width: 15ch;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	&__description {
+		max-width: 25ch;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	&__illustration {
+		max-height: 5rem;
+		max-width: 10rem;
+		img {
+			height: auto;
+			max-height: 5rem;
+			max-width: 10rem;
+		}
+	}
+}
