@@ -3,6 +3,7 @@
 	height: 96px;
 	background-color: $white;
 	padding: 0 3.2rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 	&__menu {
 		display: none;
 		cursor: pointer;
