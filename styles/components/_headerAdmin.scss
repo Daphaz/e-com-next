@@ -58,7 +58,9 @@
 			@include nl {
 				margin-bottom: 0.8rem;
 			}
-			a {
+			a,
+			div {
+				cursor: pointer;
 				@extend %flex_align;
 				color: $neutral600;
 			}
