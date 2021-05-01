@@ -10,6 +10,7 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "axios": "^0.21.1",
+    "dateformat": "^4.5.1",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^3.1.2",
     "next": "10.1.3",
