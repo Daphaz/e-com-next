@@ -2,15 +2,22 @@ import React from "react";
 import Layout from "../../components/Admin/Layout";
 import styles from "../../styles/admin.module.scss";
 import Orders from "../../components/Admin/Orders";
+import { ProtectedRouteAdmin } from "../../auth/protectedRoutes";
+import useAuth from "../../auth/context";
 
 const Commandes = () => {
+	const { isAuthenticatedAdmin } = useAuth();
 	return (
-		<Layout>
-			<div className={styles.admin__content}>
-				<Orders commandes footer />
-			</div>
-		</Layout>
+		<>
+			{isAuthenticatedAdmin && (
+				<Layout>
+					<div className={styles.admin__content}>
+						<Orders commandes footer />
+					</div>
+				</Layout>
+			)}
+		</>
 	);
 };
 
-export default Commandes;
+export default ProtectedRouteAdmin(Commandes);
