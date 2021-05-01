@@ -4,9 +4,11 @@ import Chevron from "../../public/icons/icon-cheveron-down.svg";
 import Logout from "../../public/icons/icon-door-exit.svg";
 import Menu from "../../public/icons/icon-menu.svg";
 import User from "../../public/icons/icon-user.svg";
+import useAuth from "../../auth/context";
 
 const Header = ({ styles }) => {
 	const menu = useRef(null);
+	const { logout } = useAuth();
 
 	function handleMenu() {
 		menu.current.classList.toggle(styles.menu__active);
@@ -44,12 +46,10 @@ const Header = ({ styles }) => {
 						</Link>
 					</li>
 					<li>
-						<Link href="/logout">
-							<a>
-								<Logout />
-								Logout
-							</a>
-						</Link>
+						<div onClick={() => logout()}>
+							<Logout />
+							Logout
+						</div>
 					</li>
 				</ul>
 			</div>
