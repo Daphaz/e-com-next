@@ -5,48 +5,10 @@ import IconAdd from "../../public/icons/icon-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
+import Router from "next/router";
 
-const datas = [
-	{
-		id: 1,
-		name: "Bonnet rouge",
-		slug: "bonnet-rouge",
-		illustration: "https://via.placeholder.com/500x500",
-		subtitle: "Bonnet en laine rouge tissé a la main",
-		description:
-			"Maiores voluptate molestias nulla laborum voluptas ab omnis dicta facere, nostrum at fuga minus, debitis sit, quod fugit quaerat velit aliquid repellendus.",
-		featured: false,
-		price: "9.00 €",
-		category: "Bonnets",
-	},
-	{
-		id: 2,
-		name: "Bonnet rouge",
-		slug: "bonnet-rouge",
-		illustration: "https://via.placeholder.com/500x500",
-		subtitle: "Bonnet en laine rouge tissé a la main",
-		description:
-			"Maiores voluptate molestias nulla laborum voluptas ab omnis dicta facere, nostrum at fuga minus, debitis sit, quod fugit quaerat velit aliquid repellendus.",
-		featured: true,
-		price: "9.00 €",
-		category: "Bonnets",
-	},
-	{
-		id: 3,
-		name: "Bonnet rouge",
-		slug: "bonnet-rouge",
-		illustration: "https://via.placeholder.com/500x500",
-		subtitle: "Bonnet en laine rouge tissé a la main",
-		description:
-			"Maiores voluptate molestias nulla laborum voluptas ab omnis dicta facere, nostrum at fuga minus, debitis sit, quod fugit quaerat velit aliquid repellendus.",
-		featured: false,
-		price: "9.00 €",
-		category: "Bonnets",
-	},
-];
-
-const ProduitsTable = () => {
-	const [items, setItems] = useState(datas);
+const ProduitsTable = ({ products }) => {
+	const [items, setItems] = useState(products);
 	const [pageNumber, setPageNumber] = useState(0);
 	const itemsPerPage = 5;
 	const pagesVisited = pageNumber * itemsPerPage;
@@ -62,7 +24,10 @@ const ProduitsTable = () => {
 						</div>
 						<div className={styles.table__cell}>
 							<div className={styles.product__illustration}>
-								<img src={item.illustration} alt={item.name} />
+								<img
+									src={`${process.env.NEXT_PUBLIC_BASE_URL}/static/${item.illustration}`}
+									alt={item.name}
+								/>
 							</div>
 						</div>
 						<div className={`${styles.table__cell} ${styles.xl_hide}`}>
@@ -108,12 +73,16 @@ const ProduitsTable = () => {
 		setPageNumber(selected);
 	}
 
+	function handleCreate() {
+		Router.push("/gestion/produits/create");
+	}
+
 	return (
 		<div className={styles.admin__table}>
 			<div className={styles.table__header}>
 				<h3>Produits</h3>
 				<div className={styles.table__create}>
-					<button className="btn btn__create">
+					<button className="btn btn__create" onClick={handleCreate}>
 						<IconAdd />
 						Créer un produit
 					</button>
