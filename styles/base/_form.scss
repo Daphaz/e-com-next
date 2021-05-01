@@ -1,8 +1,24 @@
 .form {
 	max-width: 600px;
-	min-width: 200px;
+	min-width: 150px;
 	&__group {
 		margin-bottom: 2.4rem;
+		&.ml {
+			margin-left: auto;
+			@include c {
+				margin-left: inherit;
+			}
+		}
+	}
+	&__control {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2.4rem;
+		@include c {
+			gap: 0;
+			flex-direction: column;
+			width: 100%;
+		}
 	}
 	input {
 		height: 6rem;
@@ -16,6 +32,92 @@
 			height: 4rem;
 		}
 	}
+	&__file {
+		position: relative;
+		vertical-align: middle;
+		&::-webkit-file-upload-button {
+			text-align: left;
+			height: 100%;
+			vertical-align: middle;
+			visibility: hidden;
+			margin-left: -35px;
+			padding: 0;
+			font-size: 0.2rem;
+		}
+		&::before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 60px;
+			height: 100%;
+			content: "";
+			display: inline-block;
+			background: url("/icons/icon-folder.svg") center center no-repeat;
+			background-size: 24px;
+			background-color: $accent300;
+			border-radius: 0 5px 5px 0;
+			padding: 10px 16px;
+			outline: none;
+			white-space: nowrap;
+			cursor: pointer;
+		}
+	}
+	textarea {
+		@extend %fr;
+		width: 100%;
+		outline: none;
+		resize: vertical;
+		border: none;
+		font-size: 1.6rem;
+		padding: 1.6rem;
+		min-height: 6rem;
+		border-radius: 5px;
+		background-color: $white;
+	}
+	input[type="checkbox"] {
+		position: relative;
+		cursor: pointer;
+		display: inline-block;
+		width: 50px;
+		height: 25px;
+		background-color: transparent;
+		border: 1px solid $neutral200;
+		border-radius: 999px;
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 2px;
+			content: "";
+			background-color: $neutral200;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			transform: translate(0, -50%);
+			transition: 0.2s ease-out;
+		}
+		&:checked {
+			background-color: $accent400;
+			border: 1px solid $accent400;
+			&::before {
+				background-color: $white;
+				transform: translate(26px, -50%);
+			}
+		}
+	}
+
+	select {
+		width: 100%;
+		min-height: 4rem;
+		outline: none;
+		border-radius: none;
+		background-color: $white;
+		border-radius: 5px;
+		padding: 0 1.8rem;
+		border: none;
+		font-size: 1.4rem;
+		@extend %fr;
+	}
+
 	label {
 		display: flex;
 		width: 100%;
