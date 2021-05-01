@@ -33,11 +33,12 @@ const Sidebar = ({ styles }) => {
 				</header>
 				<nav>
 					<ul>
-						<Link href="/gestion">
+						<Link href="/gestion/dashboard">
 							<a>
 								<li
 									className={`${styles.navItem} ${
-										router.pathname === "/gestion" && styles.navItemActive
+										router.pathname === "/gestion/dashboard" &&
+										styles.navItemActive
 									}`}>
 									<Dash />
 									<span>Dashboard</span>
