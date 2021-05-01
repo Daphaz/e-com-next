@@ -19,7 +19,7 @@ const Produits = () => {
 			{isAuthenticatedAdmin && (
 				<Layout>
 					<div className={styles.admin__content}>
-						<ProduitsTable products={products} />
+						{products && <ProduitsTable products={products} />}
 					</div>
 				</Layout>
 			)}
