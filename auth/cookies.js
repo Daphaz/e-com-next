@@ -5,6 +5,7 @@ export const setCookie = (key, value) => {
 		cookie.set(key, value, {
 			expires: 2,
 			path: "/",
+			sameSite: "Strict",
 		});
 	}
 };
@@ -38,6 +39,16 @@ export const redirectFromServer = (context) => {
 		if (token) {
 			context.res.statusCode = 302;
 			context.res.setHeader("Location", "/");
+		}
+	}
+};
+
+export const redirectAdminFromServer = (context) => {
+	if (context.req.headers.cookie) {
+		const token = getCookieFromServer("token", context.req);
+		if (token) {
+			context.res.statusCode = 302;
+			context.res.setHeader("Location", "/gestion/dashboard");
 		}
 	}
 };

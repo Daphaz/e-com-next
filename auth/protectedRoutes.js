@@ -16,3 +16,18 @@ export const ProtectedRoute = (Component) => {
 		return <Component {...arguments} />;
 	};
 };
+
+export const ProtectedRouteAdmin = (Component) => {
+	return () => {
+		const { isAuthenticatedAdmin, loading } = useAuth();
+		const router = useRouter();
+
+		useEffect(() => {
+			if (!isAuthenticatedAdmin && !loading) {
+				router.push("/gestion");
+			}
+		}, [isAuthenticatedAdmin, loading]);
+
+		return <Component {...arguments} />;
+	};
+};
