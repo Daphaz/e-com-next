@@ -22,7 +22,7 @@ function formValid({ errors, ...rest }) {
 }
 
 //handleChange Login
-function handleChangeLogin(e) {
+function handleChangeLogin(e, state, setState) {
 	e.preventDefault();
 	const { name, value } = e.target;
 	let errors = { ...state.errors };
