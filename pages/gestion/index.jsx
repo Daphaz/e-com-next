@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../styles/admin.module.scss";
 import useAuth from "../../auth/context";
-import FormErrors from "../../components/FormErrors";
 import { redirectAdminFromServer } from "../../auth/cookies";
 import { formValid, handleChangeLogin } from "../../helpers";
+import { Form, FormErrors, Input } from "../../components";
 
 const initialState = {
 	email: "",
@@ -47,33 +47,27 @@ const Login = () => {
 			<div className={styles.loginAdmin__right}>
 				<h3>Gestion de E-shop</h3>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-				<form className="form" onSubmit={formSubmit}>
-					<div className="form__group">
-						<label htmlFor="email">Email</label>
-						<input
-							type="email"
-							name="email"
-							id="email"
-							value={state.email}
-							onChange={(e) => handleChangeLogin(e, state, setState)}
-						/>
+				<Form onSubmit={formSubmit}>
+					<Input
+						type="email"
+						name="email"
+						label="Email"
+						value={state.email}
+						handleChange={(e) => handleChangeLogin(e, state, setState)}>
 						{state.errors.email.length > 0 && (
 							<FormErrors error={state.errors.email} />
 						)}
-					</div>
-					<div className="form__group">
-						<label htmlFor="password">Password</label>
-						<input
-							type="password"
-							name="password"
-							id="password"
-							value={state.password}
-							onChange={(e) => handleChangeLogin(e, state, setState)}
-						/>
+					</Input>
+					<Input
+						type="password"
+						name="password"
+						label="Password"
+						value={state.password}
+						handleChange={(e) => handleChangeLogin(e, state, setState)}>
 						{state.errors.password.length > 0 && (
 							<FormErrors error={state.errors.password} />
 						)}
-					</div>
+					</Input>
 					<button
 						type="submit"
 						className="btn btn__primary"
@@ -83,7 +77,7 @@ const Login = () => {
 					<a href="#" className="form__link">
 						Mot de passe oublié ?
 					</a>
-				</form>
+				</Form>
 			</div>
 		</div>
 	);
