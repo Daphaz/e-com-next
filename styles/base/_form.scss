@@ -31,6 +31,10 @@
 		@include c {
 			height: 4rem;
 		}
+		&:disabled {
+			background-color: $neutral200;
+			cursor: not-allowed;
+		}
 	}
 	&__file {
 		position: relative;
