@@ -5,34 +5,15 @@ import CalendarAdd from "../../public/icons/icon-calendar-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
+import Router from "next/router";
 
-const datas = [
-	{
-		id: 1,
-		name: "Manteaux",
-	},
-	{
-		id: 2,
-		name: "Bonnets",
-	},
-	{
-		id: 3,
-		name: "Écharpes",
-	},
-	{
-		id: 4,
-		name: "T-Shirts",
-	},
-];
-
-const CategorieTable = () => {
-	const [items, setItems] = useState(datas);
+const CategorieTable = ({ categories }) => {
 	const [pageNumber, setPageNumber] = useState(0);
 	const itemsPerPage = 5;
 	const pagesVisited = pageNumber * itemsPerPage;
 
 	function displayItems() {
-		return items
+		return categories
 			.slice(pagesVisited, pagesVisited + itemsPerPage)
 			.map((item) => {
 				return (
@@ -52,10 +33,14 @@ const CategorieTable = () => {
 			});
 	}
 
-	const pageCount = Math.ceil(items.length / itemsPerPage);
+	const pageCount = Math.ceil(categories.length / itemsPerPage);
 
 	function changePage({ selected }) {
 		setPageNumber(selected);
+	}
+
+	function handleCreate() {
+		Router.push("/gestion/categories/create");
 	}
 
 	return (
@@ -63,7 +48,7 @@ const CategorieTable = () => {
 			<div className={styles.table__header}>
 				<h3>Catégories</h3>
 				<div className={styles.table__create}>
-					<button className="btn btn__create">
+					<button className="btn btn__create" onClick={handleCreate}>
 						<CalendarAdd />
 						Créer une categorie
 					</button>
@@ -82,7 +67,7 @@ const CategorieTable = () => {
 				{displayItems()}
 				<div className={styles.table__footer}>
 					<div className={styles.table__cell}>
-						<span>{items.length}</span>
+						<span>{categories.length}</span>
 						<p>résultats</p>
 					</div>
 					<div className={styles.table__cell}></div>
