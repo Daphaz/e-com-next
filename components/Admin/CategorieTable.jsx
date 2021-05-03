@@ -7,7 +7,7 @@ import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
 import Router from "next/router";
 
-const CategorieTable = ({ categories }) => {
+const CategorieTable = ({ categories, deleteCategory }) => {
 	const [pageNumber, setPageNumber] = useState(0);
 	const itemsPerPage = 5;
 	const pagesVisited = pageNumber * itemsPerPage;
@@ -15,16 +15,18 @@ const CategorieTable = ({ categories }) => {
 	function displayItems() {
 		return categories
 			.slice(pagesVisited, pagesVisited + itemsPerPage)
-			.map((item) => {
+			.map((item, i) => {
 				return (
 					<div className={styles.table__row} key={item.id}>
-						<div className={styles.table__cell}>{item.id}</div>
+						<div className={styles.table__cell}>{i + 1}</div>
 						<div className={styles.table__cell}>{item.name}</div>
 						<div className={`${styles.table__cell} ${styles.table__btns}`}>
 							<button className="btn btn__edit">
 								<Edit />
 							</button>
-							<button className="btn btn__delete">
+							<button
+								className="btn btn__delete"
+								onClick={() => deleteCategory(item.id)}>
 								<Trash />
 							</button>
 						</div>
