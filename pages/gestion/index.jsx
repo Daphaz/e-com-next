@@ -55,7 +55,7 @@ const Login = () => {
 							name="email"
 							id="email"
 							value={state.email}
-							onChange={handleChangeLogin}
+							onChange={(e) => handleChangeLogin(e, state, setState)}
 						/>
 						{state.errors.email.length > 0 && (
 							<FormErrors error={state.errors.email} />
@@ -68,7 +68,7 @@ const Login = () => {
 							name="password"
 							id="password"
 							value={state.password}
-							onChange={handleChangeLogin}
+							onChange={(e) => handleChangeLogin(e, state, setState)}
 						/>
 						{state.errors.password.length > 0 && (
 							<FormErrors error={state.errors.password} />
