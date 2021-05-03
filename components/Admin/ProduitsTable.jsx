@@ -5,16 +5,16 @@ import IconAdd from "../../public/icons/icon-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
+import { priceFormatted } from "../../helpers";
 import Router from "next/router";
 
-const ProduitsTable = ({ products }) => {
-	const [items, setItems] = useState(products);
+const ProduitsTable = ({ products, deleteProduct }) => {
 	const [pageNumber, setPageNumber] = useState(0);
 	const itemsPerPage = 5;
 	const pagesVisited = pageNumber * itemsPerPage;
 
 	function displayItems() {
-		return items
+		return products
 			.slice(pagesVisited, pagesVisited + itemsPerPage)
 			.map((item) => {
 				return (
@@ -43,13 +43,15 @@ const ProduitsTable = ({ products }) => {
 								<input
 									type="checkbox"
 									name="featured"
-									defaultChecked={item.featured}
+									defaultChecked={item.isBest === 0 ? false : true}
 									className={styles.product__featuredInput}
 								/>
 							</div>
 						</div>
 						<div className={`${styles.table__cell} ${styles.m_hide}`}>
-							<div className={styles.product__price}>{item.price}</div>
+							<div className={styles.product__price}>
+								{priceFormatted(item.price)}
+							</div>
 						</div>
 						<div className={`${styles.table__cell} ${styles.l_hide}`}>
 							<div className={styles.product__category}>{item.category}</div>
@@ -58,7 +60,9 @@ const ProduitsTable = ({ products }) => {
 							<button className="btn btn__edit">
 								<Edit />
 							</button>
-							<button className="btn btn__delete">
+							<button
+								className="btn btn__delete"
+								onClick={() => deleteProduct(item.id)}>
 								<Trash />
 							</button>
 						</div>
@@ -67,7 +71,7 @@ const ProduitsTable = ({ products }) => {
 			});
 	}
 
-	const pageCount = Math.ceil(items.length / itemsPerPage);
+	const pageCount = Math.ceil(products.length / itemsPerPage);
 
 	function changePage({ selected }) {
 		setPageNumber(selected);
@@ -112,7 +116,7 @@ const ProduitsTable = ({ products }) => {
 				{displayItems()}
 				<div className={styles.table__footer}>
 					<div className={styles.table__cell}>
-						<span>{items.length}</span>
+						<span>{products.length}</span>
 						<p>résultats</p>
 					</div>
 					<div className={`${styles.table__cell} ${styles.xl_hide}`}></div>
