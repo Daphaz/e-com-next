@@ -5,7 +5,7 @@ import { ProtectedRouteAdmin } from "../../../auth/protectedRoutes";
 import useAuth from "../../../auth/context";
 import api from "../../../auth/axios";
 import { formValid } from "../../../helpers";
-import FormErrors from "../../../components/FormErrors";
+import { FormErrors, Form, Input } from "../../../components/";
 import Router from "next/router";
 
 const initialState = {
@@ -57,27 +57,22 @@ const NewCategory = () => {
 						<div className={styles.admin__containerForm}>
 							<h3>Création d'une categorie</h3>
 							<div className={styles.admin__create}>
-								<form className="form" onSubmit={onSubmit}>
-									<div className="form__group">
-										<label htmlFor="name">Nom</label>
-										<input
-											type="text"
-											name="name"
-											id="name"
-											value={state.name}
-											onChange={handleChange}
-											required
-										/>
+								<Form onSubmit={onSubmit}>
+									<Input
+										type="text"
+										name="name"
+										label="Nom"
+										value={state.name}
+										handleChange={handleChange}
+										required>
 										{state.errors.name.length > 0 && (
 											<FormErrors error={state.errors.name} />
 										)}
-									</div>
-									<div className="form__group">
-										<button type="submit" className="btn btn__primary">
-											enregistrer
-										</button>
-									</div>
-								</form>
+									</Input>
+									<button type="submit" className="btn btn__primary">
+										enregistrer
+									</button>
+								</Form>
 							</div>
 						</div>
 					</div>

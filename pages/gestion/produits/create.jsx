@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Layout from "../../../components/Admin/Layout";
 import styles from "../../../styles/admin.module.scss";
 import { ProtectedRouteAdmin } from "../../../auth/protectedRoutes";
 import useAuth from "../../../auth/context";
 import useSWR from "swr";
 import api from "../../../auth/axios";
 import { formValid, slugify } from "../../../helpers";
-import FormErrors from "../../../components/FormErrors";
+import Layout from "../../../components/Admin/Layout";
+import { Form, FormErrors, Input } from "../../../components";
 import Router from "next/router";
 
 const initialState = {
@@ -26,6 +26,19 @@ const initialState = {
 };
 
 const fetcher = (url) => api.get(url).then((res) => res.data.data);
+
+const OptionCategory = ({ category }) => {
+	return (
+		<>
+			{category &&
+				category.map((cat) => (
+					<option value={cat.name} key={cat.id}>
+						{cat.name}
+					</option>
+				))}
+		</>
+	);
+};
 
 const NewProduct = () => {
 	const { isAuthenticatedAdmin } = useAuth();
@@ -93,7 +106,7 @@ const NewProduct = () => {
 				const { type, message } = error.response.data;
 				setState({
 					...state,
-					[type || "category"]: "",
+					[type !== "request" ? type : "category"]: "",
 					errors: { ...state.errors, [type || "category"]: message },
 				});
 			}
@@ -110,110 +123,84 @@ const NewProduct = () => {
 						<div className={styles.admin__containerForm}>
 							<h3>Création d'un produits</h3>
 							<div className={styles.admin__create}>
-								<form className="form" onSubmit={onSubmit}>
+								<Form onSubmit={onSubmit}>
 									<div className="form__control">
-										<div className="form__group">
-											<label htmlFor="name">Nom</label>
-											<input
-												type="text"
-												name="name"
-												id="name"
-												onChange={handleChange}
-											/>
+										<Input
+											type="text"
+											name="name"
+											label="Nom"
+											value={state.name}
+											handleChange={handleChange}>
 											{state.errors.name.length > 0 && (
 												<FormErrors error={state.errors.name} />
 											)}
-										</div>
-										<div className="form__group">
-											<label htmlFor="slug">Slug</label>
-											<input
-												type="text"
-												name="slug"
-												id="slug"
-												value={state.slug}
-												disabled
-											/>
-										</div>
-									</div>
-									<div className="form__group">
-										<label htmlFor="illustration">Illustration</label>
-										<input
-											type="file"
-											name="illustration"
-											id="illustration"
-											className="form__file"
-											onChange={handleChange}
+										</Input>
+										<Input
+											type="text"
+											name="slug"
+											label="Slug"
+											value={state.slug}
+											handleChange={handleChange}
 										/>
+									</div>
+									<Input
+										type="file"
+										name="illustration"
+										label="Illustration"
+										handleChange={handleChange}>
 										{state.errors.illustration.length > 0 && (
 											<FormErrors error={state.errors.illustration} />
 										)}
-									</div>
-									<div className="form__group">
-										<label htmlFor="subtitle">sous-titre</label>
-										<input
-											type="text"
-											name="subtitle"
-											id="subtitle"
-											onChange={handleChange}
+									</Input>
+									<Input
+										type="text"
+										name="subtitle"
+										label="sous-titre"
+										value={state.subtitle}
+										handleChange={handleChange}
+										required
+									/>
+									<Input
+										type="textarea"
+										name="description"
+										label="description"
+										value={state.description}
+										handleChange={handleChange}
+										required
+									/>
+									<div className="form__control">
+										<Input
+											type="checkbox"
+											name="featured"
+											label="en avant"
+											checked={state.featured}
+											handleChange={handleChange}
+										/>
+										<Input
+											type="number"
+											name="price"
+											label="prix"
+											handleChange={handleChange}
+											ml
 											required
 										/>
 									</div>
-									<div className="form__group">
-										<label htmlFor="description">description</label>
-										<textarea
-											name="description"
-											id="description"
-											onChange={handleChange}
-											required></textarea>
-									</div>
-									<div className="form__control">
-										<div className="form__group">
-											<label htmlFor="featured">en avant</label>
-											<input
-												type="checkbox"
-												name="featured"
-												id="featured"
-												checked={state.featured}
-												onChange={handleChange}
-											/>
-										</div>
-										<div className="form__group ml">
-											<label htmlFor="price">prix</label>
-											<input
-												type="number"
-												step="0.01"
-												name="price"
-												id="price"
-												onChange={handleChange}
-												required
-											/>
-										</div>
-									</div>
-									<div className="form__group">
-										<label htmlFor="category">categorie</label>
-										<select
-											type="number"
-											name="category"
-											id="category"
-											onChange={handleChange}>
-											<option value="none">choisir une categorie</option>
-											{category &&
-												category.map((cat) => (
-													<option value={cat.name} key={cat.id}>
-														{cat.name}
-													</option>
-												))}
-										</select>
+									<Input
+										type="select"
+										name="category"
+										label="categorie"
+										Options={<OptionCategory category={category} />}
+										handleChange={handleChange}
+										defaultOption="choisir une categorie"
+										required>
 										{state.errors.category.length > 0 && (
 											<FormErrors error={state.errors.category} />
 										)}
-									</div>
-									<div className="form__group">
-										<button type="submit" className="btn btn__primary">
-											enregistrer
-										</button>
-									</div>
-								</form>
+									</Input>
+									<button type="submit" className="btn btn__primary">
+										enregistrer
+									</button>
+								</Form>
 							</div>
 						</div>
 					</div>
