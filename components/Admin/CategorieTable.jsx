@@ -21,7 +21,9 @@ const CategorieTable = ({ categories, deleteCategory }) => {
 						<div className={styles.table__cell}>{i + 1}</div>
 						<div className={styles.table__cell}>{item.name}</div>
 						<div className={`${styles.table__cell} ${styles.table__btns}`}>
-							<button className="btn btn__edit">
+							<button
+								className="btn btn__edit"
+								onClick={() => handleEdit(item.id)}>
 								<Edit />
 							</button>
 							<button
@@ -43,6 +45,10 @@ const CategorieTable = ({ categories, deleteCategory }) => {
 
 	function handleCreate() {
 		Router.push("/gestion/categories/create");
+	}
+
+	function handleEdit(id) {
+		Router.push(`/gestion/categories/edit/${id}`);
 	}
 
 	return (
