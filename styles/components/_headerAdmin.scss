@@ -23,6 +23,8 @@
 		border-radius: 50%;
 		object-fit: cover;
 		border: 1px solid $accent400;
+		width: 5rem;
+		height: 5rem;
 		@include c {
 			width: 3.5rem;
 			height: 3.5rem;

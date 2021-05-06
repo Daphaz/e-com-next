@@ -8,7 +8,7 @@ import useAuth from "../../auth/context";
 
 const Header = ({ styles }) => {
 	const menu = useRef(null);
-	const { logout } = useAuth();
+	const { logout, user } = useAuth();
 
 	function handleMenu() {
 		menu.current.classList.toggle(styles.menu__active);
@@ -28,9 +28,9 @@ const Header = ({ styles }) => {
 				<Menu />
 			</div>
 			<div className={styles.profile}>
-				<img src="https://via.placeholder.com/55x55" alt="profile image" />
+				<img src="/images/avatar.jpg" alt="profile image" />
 				<div className={styles.profile__warp}>
-					<h3>Jhon Doe</h3>
+					<h3>{`${user.firstname} ${user.lastname}`}</h3>
 					<p>Admin</p>
 				</div>
 				<div className={styles.icon__chevronDown} onClick={handleMenu}>
