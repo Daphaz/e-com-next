@@ -5,72 +5,9 @@ import UserAdd from "../../public/icons/icon-user-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
+import Router from "next/router";
 
-const datas = [
-	{
-		id: 1,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 2,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 3,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 4,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 5,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 6,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 7,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 8,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 9,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-	{
-		id: 10,
-		email: "jhondoe@doe.com",
-		firstname: "jhon",
-		lastname: "doe",
-	},
-];
-
-const ClientsTable = () => {
-	const [users, setUser] = useState(datas);
+const ClientsTable = ({ users, deleteUser }) => {
 	const [pageNumber, setPageNumber] = useState(0);
 	const usersPerPage = 5;
 	const pagesVisited = pageNumber * usersPerPage;
@@ -78,11 +15,11 @@ const ClientsTable = () => {
 	function displayUsers() {
 		return users
 			.slice(pagesVisited, pagesVisited + usersPerPage)
-			.map((user) => {
+			.map((user, i) => {
 				return (
 					<div className={styles.table__row} key={user.id}>
 						<div className={`${styles.table__cell} ${styles.m_hide}`}>
-							{user.id}
+							{i + 1}
 						</div>
 						<div className={styles.table__cell}>{user.email}</div>
 						<div className={`${styles.table__cell} ${styles.m_hide}`}>
@@ -91,13 +28,22 @@ const ClientsTable = () => {
 						<div className={`${styles.table__cell} ${styles.sm_hide}`}>
 							{user.lastname}
 						</div>
+						<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+							{user.roles}
+						</div>
 						<div className={`${styles.table__cell} ${styles.table__btns}`}>
-							<button className="btn btn__edit">
+							<button
+								className="btn btn__edit"
+								onClick={() => handleEdit(user.id)}>
 								<Edit />
 							</button>
-							<button className="btn btn__delete">
-								<Trash />
-							</button>
+							{user.roles !== "admin" && (
+								<button
+									className="btn btn__delete"
+									onClick={() => deleteUser(user.id)}>
+									<Trash />
+								</button>
+							)}
 						</div>
 					</div>
 				);
@@ -110,12 +56,20 @@ const ClientsTable = () => {
 		setPageNumber(selected);
 	}
 
+	function handleCreate() {
+		Router.push("/gestion/clients/create");
+	}
+
+	function handleEdit(id) {
+		Router.push(`/gestion/clients/edit/${id}`);
+	}
+
 	return (
 		<div className={styles.admin__table}>
 			<div className={styles.table__header}>
 				<h3>Clients</h3>
 				<div className={styles.table__create}>
-					<button className="btn btn__create">
+					<button className="btn btn__create" onClick={handleCreate}>
 						<UserAdd />
 						Créer un utilisateur
 					</button>
@@ -135,6 +89,9 @@ const ClientsTable = () => {
 					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
 						Nom <OrderVertical />
 					</div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}>
+						Roles <OrderVertical />
+					</div>
 					<div className={styles.table__cell}></div>
 				</div>
 				{displayUsers()}
@@ -145,6 +102,7 @@ const ClientsTable = () => {
 					</div>
 					<div className={`${styles.table__cell} ${styles.m_hide}`}></div>
 					<div className={`${styles.table__cell} ${styles.m_hide}`}></div>
+					<div className={`${styles.table__cell} ${styles.sm_hide}`}></div>
 					<div className={`${styles.table__cell} ${styles.sm_hide}`}></div>
 					<div className={styles.table__cell}>
 						<Pagination changePage={changePage} pageCount={pageCount} />
