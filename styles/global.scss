@@ -9,7 +9,10 @@
 
 //Components
 @import "components/header", "components/footer", "components/form",
-	"components/pagination";
+	"components/pagination", "components/carousel", "components/productFeatured";
 
 //layout
 @import "layout/content";
+
+//Vendor
+@import "vendor/owl.carousel";

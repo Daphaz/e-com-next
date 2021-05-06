@@ -1,16 +1,36 @@
+body {
+	position: relative;
+	@extend %fr;
+	background-color: $neutral50;
+	color: $neutral900;
+}
+
+#__next {
+	@extend %flex_col;
+	min-height: 100vh;
+}
+
+.is_open {
+	overflow: hidden !important;
+}
+
+main {
+	flex-grow: 1;
+}
+
 .container {
-	width: 100%;
-	padding: 0 12rem;
+	padding: 0 12.8rem;
 	@include w {
-		padding: 0 8rem;
+		padding: 0 6.4rem;
 	}
 	@include x {
-		padding: 0 6rem;
+		padding: 0 3.2rem;
 	}
 	@include c {
-		padding: 0 4rem;
+		padding: 0 1.6rem;
 	}
-	@include v {
-		padding: 0 2rem;
-	}
+}
+.warpper {
+	padding-top: 8rem;
+	min-height: 100vh;
 }

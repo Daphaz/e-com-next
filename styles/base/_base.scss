@@ -168,23 +168,3 @@ a,
 button {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-body {
-	position: relative;
-	@extend %fr;
-	background-color: $neutral50;
-	color: $neutral900;
-}
-
-#__next {
-	@extend %flex_col;
-	min-height: 100vh;
-}
-
-.is_open {
-	overflow: hidden;
-}
-
-main {
-	flex-grow: 1;
-}
