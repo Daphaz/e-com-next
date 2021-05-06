@@ -1,101 +1,105 @@
 import React from "react";
+import IconSend from "../public/icons/icon-send.svg";
 
 const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="container">
-				<div className="footer--top">
-					<div className="footer--item">
-						<div className="footer--headline">ipsum dolor.</div>
-						<ul className="footer--links">
-							<li className="footer--link">
+				<div className="footer__top">
+					<div className="footer__item">
+						<div className="footer__headline">ipsum dolor.</div>
+						<ul className="footer__links">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-						</ul>
-					</div>
-					<div className="footer--item">
-						<div className="footer--headline">ipsum dolor.</div>
-						<ul className="footer--links">
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
 						</ul>
 					</div>
-					<div className="footer--item">
-						<div className="footer--headline">ipsum dolor.</div>
-						<ul className="footer--links">
-							<li className="footer--link">
+					<div className="footer__item">
+						<div className="footer__headline">ipsum dolor.</div>
+						<ul className="footer__links">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-						</ul>
-					</div>
-					<div className="footer--item">
-						<div className="footer--headline">ipsum dolor.</div>
-						<ul className="footer--links">
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
-								<a href="#">Lorem</a>
-							</li>
-							<li className="footer--link">
+							<li className="footer__link">
 								<a href="#">Lorem</a>
 							</li>
 						</ul>
 					</div>
-					<div className="footer--subscribe">
-						<div className="footer--headline">ipsum dolor.</div>
-						<div className="footer--subtitle">
+					<div className="footer__item">
+						<div className="footer__headline">ipsum dolor.</div>
+						<ul className="footer__links">
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+						</ul>
+					</div>
+					<div className="footer__item">
+						<div className="footer__headline">ipsum dolor.</div>
+						<ul className="footer__links">
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+							<li className="footer__link">
+								<a href="#">Lorem</a>
+							</li>
+						</ul>
+					</div>
+					<div className="footer__subscribe">
+						<div className="footer__headline">Newsletter</div>
+						<div className="footer__subtitle">
 							<p>
 								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit
 								aliquid repellat repudiandae ratione voluptate quidem provident.
 							</p>
 						</div>
-						<form className="form--subscribe">
-							<div className="form--line">
+						<form className="form__subscribe">
+							<div className="form__line">
+								<label htmlFor="email"></label>
 								<input type="email" name="email" id="email" />
 								<button type="submit">
-									<div className="icon--send"></div>
+									<div className="icon__send">
+										<IconSend />
+									</div>
 								</button>
 							</div>
 						</form>
 					</div>
 				</div>
-				<div className="footer--bottom">
-					<div className="footer--bottom_left">
+				<div className="footer__bottom">
+					<div className="footer__bottom_left">
 						<p>Lorem ipsum dolor sit amet consectetur.</p>
 					</div>
-					<div className="footer--bottom_right">
+					<div className="footer__bottom_right">
 						<ul>
 							<li>
 								<a href="#">Lorem, ipsum.</a>
