@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import useAuth from "./context";
 import { useRouter } from "next/router";
-import { getCookieFromServer } from "./cookies";
-import axios from "axios";
+import { getCookieFromBrowser, getCookieFromServer } from "./cookies";
 import api from "./axios";
 
 export const ProtectedRoute = (Component) => {
@@ -30,6 +29,10 @@ export const ProtectedRouteAdmin = (Component) => {
 				router.push("/gestion");
 			}
 		}, [isAuthenticatedAdmin, loading]);
+
+		const token = getCookieFromBrowser("token");
+
+		api.defaults.headers.Authorization = `Bearer ${token}`;
 
 		return <Component {...arguments} />;
 	};
