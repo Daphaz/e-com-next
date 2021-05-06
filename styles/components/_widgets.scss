@@ -1,0 +1,82 @@
+.widget {
+	@extend %flex_between;
+	background-color: $white;
+	border-radius: 2rem;
+	padding: 1.6rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	@include q {
+		flex-direction: column;
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.4rem;
+		width: 100%;
+		@include c {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__wrap {
+		text-align: left;
+		@include q {
+			text-align: center;
+			order: 2;
+			margin-top: 2.4rem;
+		}
+	}
+	&__title {
+		@extend %fm;
+		font-size: 2rem;
+		font-weight: 900;
+		line-height: 1.75;
+	}
+	&__price {
+		color: $primary400;
+		font-weight: bold;
+		font-size: 2.4rem;
+	}
+	&__percent {
+		@extend %flex_align;
+		font-size: 1.6rem;
+		font-weight: bold;
+		line-height: 1.75;
+		span {
+			margin-left: 0.6rem;
+			font-size: 1.2rem;
+			line-height: 1.75;
+			color: $neutral300;
+		}
+		p {
+			@extend %flex_align;
+		}
+		svg {
+			margin-right: -0.2rem;
+			width: 18px;
+			height: 18px;
+		}
+	}
+	&__icon {
+		@extend %flex_center;
+		width: 7rem;
+		height: 7rem;
+		border-radius: 50%;
+		background-color: $primary50;
+		svg {
+			fill: $primary400;
+			width: 48px;
+			height: 48px;
+		}
+		@include q {
+			order: 1;
+		}
+	}
+	&__positive {
+		color: $green300;
+		fill: $green300;
+	}
+	&__negative {
+		color: $red300;
+		fill: $red300;
+	}
+}

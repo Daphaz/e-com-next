@@ -1,0 +1,58 @@
+.layout {
+	width: 100%;
+	display: flex;
+	min-height: 100vh;
+}
+
+.admin {
+	&__row {
+		height: 100%;
+		flex-grow: 1;
+		@extend %flex_col;
+		justify-content: space-between;
+	}
+	&__main {
+		padding: 3.2rem;
+	}
+	&__table {
+		h2 {
+			font-size: 2.4rem;
+			margin-bottom: 2.4rem;
+		}
+	}
+	&__content {
+		margin-top: 3.6rem;
+	}
+	&__containerForm {
+		@extend %flex_col;
+		align-items: center;
+		h3 {
+			align-self: flex-start;
+			font-size: 2.4rem;
+			margin-bottom: 2.4rem;
+		}
+	}
+	&__create {
+		border-radius: 10px;
+		background-color: $white;
+		box-shadow: 0 6px 8px rgba(0, 0, 0, 0.015);
+		padding: 2.4rem;
+		form {
+			max-width: 900px;
+			.form__group {
+				max-width: 600px;
+				@include v {
+					max-width: 100%;
+				}
+			}
+			input {
+				background-color: $neutral50;
+				height: 4rem;
+			}
+			textarea,
+			select {
+				background-color: $neutral50;
+			}
+		}
+	}
+}

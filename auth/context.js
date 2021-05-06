@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
 				try {
 					api.defaults.headers.Authorization = `Bearer ${token}`;
 					const userData = jwt(token);
-					const { data: user } = await api.get(`/user/${userData._id}`);
-					if (user) setUser(user);
+					const { data: user } = await api.get(`/user/${userData.id}`);
+					if (user.status) setUser(user.data);
 				} catch (e) {
 					if (e.response.status === 401) {
 						removeCookie("token");
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 		loadUserFromCookies();
 	}, []);
 	const login = async (email, password) => {
-		const { data: token } = await api.post("/user/login", {
+		const { data: token } = await api.post("/auth/login", {
 			email,
 			password,
 		});
@@ -41,21 +41,38 @@ export const AuthProvider = ({ children }) => {
 			setCookie("token", token);
 			api.defaults.headers.Authorization = `Bearer ${token}`;
 			const userData = jwt(token);
-			const { data: user } = await api.get(`/user/${userData._id}`);
-			setUser(user);
-			await Router.push("/");
+			const { data: user } = await api.get(`/user/${userData.id}`);
+			if (user.status) {
+				setUser(user.data);
+				if (Router.asPath === "/gestion") {
+					await Router.push("/gestion/dashboard");
+				} else {
+					await Router.push("/");
+				}
+			}
 		}
 	};
 
 	const logout = () => {
 		removeCookie("token");
 		setUser(null);
-		Router.push("/");
+		if (Router.asPath === "/gestion/dashboard") {
+			Router.push("/gestion");
+		} else {
+			Router.push("/");
+		}
 	};
 
 	return (
 		<AuthContext.Provider
-			value={{ isAuthenticated: !!user, user, login, logout, loading }}>
+			value={{
+				isAuthenticated: !!user,
+				isAuthenticatedAdmin: !!user && user.roles === "admin",
+				user,
+				login,
+				logout,
+				loading,
+			}}>
 			{children}
 		</AuthContext.Provider>
 	);

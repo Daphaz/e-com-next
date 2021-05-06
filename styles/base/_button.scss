@@ -1,0 +1,72 @@
+.btn {
+	@extend %flex_center;
+	font-size: 1.4rem;
+	padding: 0.8rem 1.2rem;
+	border-radius: 5px;
+	@include v {
+		font-size: 1.2rem;
+		padding: 0.6rem 0.8rem;
+	}
+	svg {
+		width: 18px;
+		height: 18px;
+		margin-right: 0.6rem;
+		fill: $neutral300;
+	}
+	&__create {
+		background-color: $accent400;
+		color: $primary50;
+		svg {
+			fill: $primary50;
+		}
+	}
+	&__edit {
+		background-color: $yellow400;
+		color: $neutral900;
+		@include v {
+			font-size: 1.2rem;
+			padding: 0.5rem 0.8rem;
+		}
+		svg {
+			fill: $neutral900 !important;
+			margin-right: 0;
+			@include v {
+				width: 12px !important;
+				height: 12px !important;
+			}
+		}
+	}
+	&__delete {
+		background-color: $red300;
+		color: $neutral900;
+		@include v {
+			font-size: 1.2rem;
+			padding: 0.5rem 0.8rem;
+		}
+		svg {
+			fill: $neutral900 !important;
+			margin-right: 0;
+			@include v {
+				width: 12px !important;
+				height: 12px !important;
+			}
+		}
+	}
+	&__primary {
+		height: 6rem;
+		font-size: 2.4rem;
+		text-transform: uppercase;
+		width: 100%;
+		background-color: $primary200;
+		color: $neutral900;
+		letter-spacing: 1px;
+		@include c {
+			height: 4rem;
+		}
+	}
+	&:disabled {
+		cursor: not-allowed;
+		background-color: $neutral400;
+		color: $neutral900;
+	}
+}

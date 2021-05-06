@@ -172,14 +172,17 @@ button {
 body {
 	position: relative;
 	@extend %fr;
-	font-size: 1.4rem;
-	background-color: $orange-vivid-050;
-	color: $cool-grey-900;
+	background-color: $neutral50;
+	color: $neutral900;
 }
 
 #__next {
 	@extend %flex_col;
 	min-height: 100vh;
+}
+
+.is_open {
+	overflow: hidden;
 }
 
 main {
