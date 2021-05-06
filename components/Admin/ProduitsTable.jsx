@@ -7,6 +7,7 @@ import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
 import { priceFormatted } from "../../helpers";
 import Router from "next/router";
+import api from "../../auth/axios";
 
 const ProduitsTable = ({ products, deleteProduct }) => {
 	const [pageNumber, setPageNumber] = useState(0);
@@ -44,6 +45,7 @@ const ProduitsTable = ({ products, deleteProduct }) => {
 									type="checkbox"
 									name="featured"
 									defaultChecked={item.isBest === 0 ? false : true}
+									onChange={() => updateIsBest(item.id)}
 									className={styles.product__featuredInput}
 								/>
 							</div>
@@ -85,6 +87,17 @@ const ProduitsTable = ({ products, deleteProduct }) => {
 
 	function handleEdit(id) {
 		Router.push(`/gestion/produits/edit/${id}`);
+	}
+
+	async function updateIsBest(id) {
+		try {
+			const { data } = await api.put(`/product/is-best/${id}`);
+			if (data.status) {
+				Router.push("/gestion/produits");
+			}
+		} catch (error) {
+			console.log("Update IsBest: ", error);
+		}
 	}
 
 	return (
