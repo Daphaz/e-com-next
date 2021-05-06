@@ -6,23 +6,11 @@ import useSWR from "swr";
 import api from "../../../../auth/axios";
 import { formValid, slugify } from "../../../../helpers";
 import Layout from "../../../../components/Admin/Layout";
+import OptionCategory from "../../../../components/Admin/OptionCategory";
 import { Form, FormErrors, Input } from "../../../../components";
 import Router from "next/router";
 
 const fetcher = (url) => api.get(url).then((res) => res.data.data);
-
-const OptionCategory = ({ category }) => {
-	return (
-		<>
-			{category &&
-				category.map((cat) => (
-					<option value={cat.name} key={cat.id}>
-						{cat.name}
-					</option>
-				))}
-		</>
-	);
-};
 
 const EditProduct = ({ product }) => {
 	const { isAuthenticatedAdmin } = useAuth();
@@ -86,8 +74,6 @@ const EditProduct = ({ product }) => {
 	async function onSubmit(e) {
 		e.preventDefault();
 
-		console.log(state);
-
 		if (formValid(state)) {
 			const formData = new FormData();
 			const { errors, ...inputs } = state;
@@ -124,7 +110,7 @@ const EditProduct = ({ product }) => {
 				<Layout>
 					<div className={styles.admin__content}>
 						<div className={styles.admin__containerForm}>
-							<h3>Création d'un produits</h3>
+							<h3>Modifier un produits</h3>
 							<div className={styles.admin__create}>
 								<Form onSubmit={onSubmit}>
 									<div className="form__control">
