@@ -1,23 +1,139 @@
 .header {
+	position: fixed;
+	width: 100%;
 	padding: 1.6rem 0;
 	background-color: $neutral50;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+	z-index: 5;
 	.container {
 		@extend %flex_between;
 	}
-	&--navlinks {
-		@extend %flex_align;
-		font-size: 1.6rem;
+	&__logo {
+		@extend %fms;
+		font-weight: 900;
+		font-size: 2.4rem;
 	}
-	&--links {
+	&__nav {
+		@include c {
+			display: none;
+		}
+	}
+	&__navlinks {
+		@extend %flex_align;
+		font-size: 2rem;
+	}
+	&__links {
 		font-weight: 500;
 		@include nf {
 			margin-left: 1.6rem;
 		}
 	}
-	&--actions {
+	&__actions {
+		@extend %flex_align;
 		a {
 			@include nl {
 				margin-right: 1.6rem;
+			}
+		}
+		svg {
+			width: 30px;
+			height: 30px;
+			fill: $primary300;
+			.icon-user_svg__secondary,
+			.icon-shopping-cart_svg__secondary {
+				fill: $accent400;
+			}
+		}
+		@include c {
+			display: none;
+		}
+	}
+
+	&__burger {
+		display: none;
+		width: 24px;
+		height: 24px;
+		svg {
+			fill: $primary300;
+		}
+		@include c {
+			display: block;
+		}
+	}
+
+	&__menuMobile {
+		width: 90%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: $primary300;
+		color: $neutral900;
+		padding: 3.2rem;
+		box-shadow: 5px 0 8px rgba(255, 255, 255, 0.045);
+		&_bg {
+			display: none;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.25);
+			z-index: 10;
+			transform: translateX(-100%);
+			transition: 0.3s;
+			&.active {
+				transform: translateX(0%);
+			}
+		}
+		&_close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 72px;
+			svg {
+				fill: $accent600;
+			}
+		}
+		@include c {
+			&_bg {
+				display: block;
+			}
+			display: flex;
+			flex-direction: column;
+			.header__nav {
+				display: flex;
+				align-items: center;
+				flex-grow: 1;
+				ul {
+					width: 100%;
+					flex-direction: column;
+					align-items: flex-start;
+					li {
+						font-size: 3.6rem;
+						margin: 0;
+						@include nl {
+							margin-bottom: 2.4rem;
+						}
+						@include v {
+							font-size: 2rem;
+						}
+					}
+				}
+			}
+			.header__actions {
+				display: flex;
+				svg {
+					fill: $accent400;
+					.icon-user_svg__secondary,
+					.icon-shopping-cart_svg__secondary {
+						fill: $neutral800;
+					}
+				}
 			}
 		}
 	}
