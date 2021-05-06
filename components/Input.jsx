@@ -74,6 +74,7 @@ const Input = ({
 						onChange={handleChange}
 						value={value && value}
 						onChange={handleChange}
+						required={required}
 					/>
 					{children}
 				</div>
