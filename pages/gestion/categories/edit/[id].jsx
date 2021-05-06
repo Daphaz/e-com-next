@@ -56,7 +56,7 @@ const Edit = ({ category }) => {
 				<Layout>
 					<div className={styles.admin__content}>
 						<div className={styles.admin__containerForm}>
-							<h3>Création d'une categorie</h3>
+							<h3>Modifier une categorie</h3>
 							<div className={styles.admin__create}>
 								<Form onSubmit={onSubmit}>
 									<Input

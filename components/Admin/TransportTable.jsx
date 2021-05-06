@@ -5,30 +5,15 @@ import IconAdd from "../../public/icons/icon-add.svg";
 import Trash from "../../public/icons/icon-trash.svg";
 import Edit from "../../public/icons/icon-edit.svg";
 import Pagination from "../Pagination";
+import Router from "next/router";
 
-const datas = [
-	{
-		id: 1,
-		name: "Colissimo",
-		description: "profiter d'une libvraison en 48H",
-		price: "14.99 €",
-	},
-	{
-		id: 2,
-		name: "Chronopost",
-		description: "livraison en 24h",
-		price: "9.90 €",
-	},
-];
-
-const TransportTable = () => {
-	const [items, setItems] = useState(datas);
+const TransportTable = ({ carrier, deleteCarrier }) => {
 	const [pageNumber, setPageNumber] = useState(0);
 	const itemsPerPage = 5;
 	const pagesVisited = pageNumber * itemsPerPage;
 
 	function displayItems() {
-		return items
+		return carrier
 			.slice(pagesVisited, pagesVisited + itemsPerPage)
 			.map((item) => {
 				return (
@@ -37,10 +22,14 @@ const TransportTable = () => {
 						<div className={styles.table__cell}>{item.description}</div>
 						<div className={styles.table__cell}>{item.price}</div>
 						<div className={`${styles.table__cell} ${styles.table__btns}`}>
-							<button className="btn btn__edit">
+							<button
+								className="btn btn__edit"
+								onClick={() => handleEdit(item.id)}>
 								<Edit />
 							</button>
-							<button className="btn btn__delete">
+							<button
+								className="btn btn__delete"
+								onClick={() => deleteCarrier(item.id)}>
 								<Trash />
 							</button>
 						</div>
@@ -49,10 +38,17 @@ const TransportTable = () => {
 			});
 	}
 
-	const pageCount = Math.ceil(items.length / itemsPerPage);
+	const pageCount = Math.ceil(carrier.length / itemsPerPage);
 
 	function changePage({ selected }) {
 		setPageNumber(selected);
+	}
+
+	function handleCreate() {
+		Router.push("/gestion/transporteur/create");
+	}
+	function handleEdit(id) {
+		Router.push(`/gestion/transporteur/edit/${id}`);
 	}
 
 	return (
@@ -60,7 +56,7 @@ const TransportTable = () => {
 			<div className={styles.table__header}>
 				<h3>Transports</h3>
 				<div className={styles.table__create}>
-					<button className="btn btn__create">
+					<button className="btn btn__create" onClick={handleCreate}>
 						<IconAdd />
 						Ajouter un transport
 					</button>
@@ -82,7 +78,7 @@ const TransportTable = () => {
 				{displayItems()}
 				<div className={styles.table__footer}>
 					<div className={styles.table__cell}>
-						<span>{items.length}</span>
+						<span>{carrier.length}</span>
 						<p>résultats</p>
 					</div>
 					<div className={styles.table__cell}></div>

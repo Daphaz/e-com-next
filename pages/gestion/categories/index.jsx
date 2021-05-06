@@ -6,11 +6,6 @@ import { ProtectedRouteAdmin } from "../../../auth/protectedRoutes";
 import useAuth from "../../../auth/context";
 import api from "../../../auth/axios";
 
-const fetcher = (url) =>
-	api
-		.get(url)
-		.then((res) => (res.data.data === undefined ? [] : res.data.data));
-
 const Categories = () => {
 	const [categories, setCategories] = useState(null);
 	const { isAuthenticatedAdmin } = useAuth();

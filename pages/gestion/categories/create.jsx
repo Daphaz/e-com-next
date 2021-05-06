@@ -43,6 +43,9 @@ const NewCategory = () => {
 					[type || "name"]: "",
 					errors: { ...state.errors, [type || "name"]: message },
 				});
+				if (error.response.statusCode === 401) {
+					Router.push("/gestion");
+				}
 			}
 		} else {
 			console.log("form invalid");
