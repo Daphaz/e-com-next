@@ -6,6 +6,7 @@ import useSWR from "swr";
 import api from "../../../auth/axios";
 import { formValid, slugify } from "../../../helpers";
 import Layout from "../../../components/Admin/Layout";
+import OptionCategory from "../../../components/Admin/OptionCategory";
 import { Form, FormErrors, Input } from "../../../components";
 import Router from "next/router";
 
@@ -26,19 +27,6 @@ const initialState = {
 };
 
 const fetcher = (url) => api.get(url).then((res) => res.data.data);
-
-const OptionCategory = ({ category }) => {
-	return (
-		<>
-			{category &&
-				category.map((cat) => (
-					<option value={cat.name} key={cat.id}>
-						{cat.name}
-					</option>
-				))}
-		</>
-	);
-};
 
 const NewProduct = () => {
 	const { isAuthenticatedAdmin } = useAuth();
@@ -109,6 +97,9 @@ const NewProduct = () => {
 					[type !== "request" ? type : "category"]: "",
 					errors: { ...state.errors, [type || "category"]: message },
 				});
+				if (error.response.statusCode === 401) {
+					Router.push("/gestion");
+				}
 			}
 		} else {
 			console.log("form invalid");
