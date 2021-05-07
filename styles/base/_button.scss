@@ -24,6 +24,7 @@
 		}
 	}
 	&__create {
+		@extend %flex_center;
 		background-color: $accent400;
 		color: $primary50;
 		svg {
@@ -74,6 +75,13 @@
 			height: 4rem;
 		}
 	}
+
+	&__close {
+		svg {
+			fill: $red300;
+		}
+	}
+
 	&:disabled {
 		cursor: not-allowed;
 		background-color: $neutral400;

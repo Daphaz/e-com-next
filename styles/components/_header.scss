@@ -30,7 +30,8 @@
 	}
 	&__actions {
 		@extend %flex_align;
-		a {
+		.links {
+			cursor: pointer;
 			@include nl {
 				margin-right: 1.6rem;
 			}
@@ -40,7 +41,8 @@
 			height: 30px;
 			fill: $primary300;
 			.icon-user_svg__secondary,
-			.icon-shopping-cart_svg__secondary {
+			.icon-shopping-cart_svg__secondary,
+			.icon-door-exit_svg__secondary {
 				fill: $accent400;
 			}
 		}
@@ -130,7 +132,8 @@
 				svg {
 					fill: $accent400;
 					.icon-user_svg__secondary,
-					.icon-shopping-cart_svg__secondary {
+					.icon-shopping-cart_svg__secondary,
+					.icon-door-exit_svg__secondary {
 						fill: $neutral800;
 					}
 				}
