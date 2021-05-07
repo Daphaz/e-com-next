@@ -11,7 +11,7 @@ export const ProtectedRoute = (Component) => {
 
 		useEffect(() => {
 			if (!isAuthenticated && !loading) {
-				router.push("/login");
+				router.push("/connexion");
 			}
 		}, [isAuthenticated, loading]);
 
@@ -62,6 +62,35 @@ export function RequireAuthentificationAdmin(gssp) {
 		} catch (error) {
 			res.statusCode = 302;
 			res.setHeader("Location", "/gestion");
+			return;
+		}
+	};
+}
+
+export function RequireAuthentification(gssp) {
+	return async (context) => {
+		const { res, req } = context;
+		const token = getCookieFromServer("token", req);
+
+		if (!token) {
+			res.statusCode = 302;
+			res.setHeader("Location", "/");
+			return;
+		}
+
+		try {
+			api.defaults.headers.Authorization = `Bearer ${token}`;
+			const { data } = await api.get("/auth");
+			if (data.status) {
+				return await gssp(context);
+			} else {
+				res.statusCode = 302;
+				res.setHeader("Location", "/");
+				return;
+			}
+		} catch (error) {
+			res.statusCode = 302;
+			res.setHeader("Location", "/");
 			return;
 		}
 	};
