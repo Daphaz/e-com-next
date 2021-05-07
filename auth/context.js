@@ -17,7 +17,9 @@ export const AuthProvider = ({ children }) => {
 				try {
 					api.defaults.headers.Authorization = `Bearer ${token}`;
 					const userData = jwt(token);
-					const { data: user } = await api.get(`/user/${userData.id}`);
+					const { data: user } = await api.get("/user", {
+						params: { id: userData.id },
+					});
 					if (user.status) setUser(user.data);
 				} catch (e) {
 					if (e.response.status === 401) {
@@ -41,13 +43,15 @@ export const AuthProvider = ({ children }) => {
 			setCookie("token", token);
 			api.defaults.headers.Authorization = `Bearer ${token}`;
 			const userData = jwt(token);
-			const { data: user } = await api.get(`/user/${userData.id}`);
+			const { data: user } = await api.get("/user", {
+				params: { id: userData.id },
+			});
 			if (user.status) {
 				setUser(user.data);
 				if (Router.asPath === "/gestion") {
 					await Router.push("/gestion/dashboard");
 				} else {
-					await Router.push("/");
+					await Router.push("/compte");
 				}
 			}
 		}
@@ -56,11 +60,12 @@ export const AuthProvider = ({ children }) => {
 	const logout = () => {
 		removeCookie("token");
 		setUser(null);
-		if (Router.asPath === "/gestion/dashboard") {
-			Router.push("/gestion");
-		} else {
-			Router.push("/");
-		}
+		Router.push("/gestion");
+	};
+	const logoutUser = () => {
+		removeCookie("token");
+		setUser(null);
+		Router.push("/");
 	};
 
 	return (
@@ -71,6 +76,7 @@ export const AuthProvider = ({ children }) => {
 				user,
 				login,
 				logout,
+				logoutUser,
 				loading,
 			}}>
 			{children}
