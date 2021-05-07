@@ -84,8 +84,8 @@ const Footer = () => {
 						</div>
 						<form className="form__subscribe">
 							<div className="form__line">
-								<label htmlFor="email"></label>
-								<input type="email" name="email" id="email" />
+								<label htmlFor="emailNewsletter"></label>
+								<input type="email" name="email" id="emailNewsletter" />
 								<button type="submit">
 									<div className="icon__send">
 										<IconSend />
