@@ -14,9 +14,7 @@ const Addresses = () => {
 	const loadAdresses = async () => {
 		setAddresses(null);
 		try {
-			const { data } = await api.get("/address/all", {
-				params: { userId: user.id },
-			});
+			const { data } = await api.get("/address/all");
 
 			if (data.status) {
 				setAddresses(data.data);
