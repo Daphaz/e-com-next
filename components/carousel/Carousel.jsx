@@ -29,6 +29,8 @@ const Carousel = () => {
 
 	useEffect(() => {
 		loadCarousel();
+
+		return () => loadCarousel;
 	}, []);
 
 	return (
