@@ -23,18 +23,20 @@ const ProductFeatured = () => {
 	}, []);
 
 	return (
-		<section className="productFeatured container">
+		<>
 			{product && (
-				<div className="productFeatured_list">
-					{product.map((p) => (
-						<Product product={p} key={p.id} />
-					))}
-				</div>
+				<section className="productFeatured container">
+					<div className="productFeatured_list">
+						{product.map((p) => (
+							<Product product={p} key={p.id} />
+						))}
+					</div>
+					<div className="productFeatured_link">
+						<a href="#">Voir le catalogue</a>
+					</div>
+				</section>
 			)}
-			<div className="productFeatured_link">
-				<a href="#">Voir le catalogue</a>
-			</div>
-		</section>
+		</>
 	);
 };
 
