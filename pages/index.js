@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Layout } from "../components";
+import { Layout, Carousel, ProductFeatured } from "../components";
 
 export default function Home() {
 	return (
@@ -7,7 +7,8 @@ export default function Home() {
 			<Head>
 				<title>E-shop Project</title>
 			</Head>
-			<div className="container">hello</div>
+			<Carousel />
+			<ProductFeatured />
 		</Layout>
 	);
 }

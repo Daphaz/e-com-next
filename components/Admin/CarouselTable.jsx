@@ -33,7 +33,7 @@ const CarouselTable = ({ carousels, deleteCarousel }) => {
 						<div className={styles.table__cell}>
 							<div className={styles.carousel__illustration}>
 								<img
-									src={`${process.env.NEXT_PUBLIC_BASE_URL}/static/${item.illustration}`}
+									src={`${process.env.NEXT_PUBLIC_BASE_URL_API}/static/${item.illustration}`}
 									alt={item.title}
 								/>
 							</div>

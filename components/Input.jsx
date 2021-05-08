@@ -18,7 +18,9 @@ const Input = ({
 		case "email":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="email"
 						name={name}
@@ -33,7 +35,9 @@ const Input = ({
 		case "password":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="password"
 						name={name}
@@ -48,7 +52,9 @@ const Input = ({
 		case "text":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="text"
 						name={name}
@@ -65,7 +71,9 @@ const Input = ({
 		case "file":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="file"
 						name={name}
@@ -82,7 +90,9 @@ const Input = ({
 		case "textarea":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<textarea
 						name={name}
 						id={name}
@@ -95,7 +105,9 @@ const Input = ({
 		case "checkbox":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="checkbox"
 						name={name}
@@ -109,7 +121,9 @@ const Input = ({
 		case "number":
 			return (
 				<div className={`form__group ${ml && "ml"}`}>
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<input
 						type="number"
 						step="0.01"
@@ -124,7 +138,9 @@ const Input = ({
 		case "select":
 			return (
 				<div className="form__group">
-					<label htmlFor={name}>{label}</label>
+					<label htmlFor={name}>
+						{label} {required && <span>*</span>}
+					</label>
 					<select name={name} id={name} onChange={handleChange}>
 						<option value="none">{defaultOption}</option>
 						{Options}

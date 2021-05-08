@@ -9,7 +9,14 @@
 
 //Components
 @import "components/header", "components/footer", "components/form",
-	"components/pagination";
+	"components/pagination", "components/carousel", "components/productFeatured",
+	"components/card";
 
 //layout
 @import "layout/content";
+
+//Pages
+@import "pages/auth", "pages/account";
+
+//Vendor
+@import "vendor/owl.carousel";

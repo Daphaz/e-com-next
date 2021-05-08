@@ -1,4 +1,5 @@
 .form {
+	width: 100%;
 	max-width: 600px;
 	min-width: 150px;
 	&__group {
@@ -11,13 +12,19 @@
 		}
 	}
 	&__control {
-		display: flex;
+		@extend %flex_between;
 		flex-wrap: wrap;
 		gap: 2.4rem;
+		.form__group {
+			flex-grow: 1;
+		}
 		@include c {
 			gap: 0;
 			flex-direction: column;
 			width: 100%;
+			.form__group {
+				width: 100%;
+			}
 		}
 	}
 	input {
@@ -129,13 +136,32 @@
 		font-size: 1.6rem;
 		font-weight: 600;
 		line-height: 1.75;
+		span {
+			margin-left: 2px;
+			color: $red400;
+		}
 	}
 	button[type="submit"] {
 		margin: 1.6rem 0;
 	}
+
+	&__links {
+		@extend %flex_between;
+		flex-wrap: wrap;
+		@include v {
+			text-align: center;
+		}
+	}
+
 	&__link {
 		font-size: 1.8rem;
 		text-decoration: underline;
 		color: $accent800;
+		@include v {
+			width: 100%;
+			@include nl {
+				margin-bottom: 1.2rem;
+			}
+		}
 	}
 }
