@@ -13,6 +13,7 @@ const Input = ({
 	ml,
 	defaultOption,
 	Options,
+	placeholder,
 }) => {
 	switch (type) {
 		case "email":
@@ -64,6 +65,7 @@ const Input = ({
 						onChange={handleChange}
 						required={required}
 						disabled={disabled}
+						placeholder={placeholder}
 					/>
 					{children}
 				</div>
