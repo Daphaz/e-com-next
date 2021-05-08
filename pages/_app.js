@@ -1,5 +1,6 @@
 import "../styles/global.scss";
 import { AuthProvider } from "../auth/context";
+import { AlertProvider } from "../constants/alert";
 import Nprogress from "nprogress";
 import Router from "next/router";
 import Head from "next/head";
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }) {
 				<meta name="Description" content="E-shop node and nextjs" />
 			</Head>
 			<AuthProvider>
-				<Component {...pageProps} />
+				<AlertProvider>
+					<Component {...pageProps} />
+				</AlertProvider>
 			</AuthProvider>
 		</>
 	);

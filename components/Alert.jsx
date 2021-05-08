@@ -1,39 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
+import IconClose from "../public/icons/icon-close.svg";
+import useAlert from "../constants/alert";
 
-const Alert = ({ type, message, title }) => {
-	switch (type) {
-		case "info":
-			return (
-				<div className="alert alert-info">
-					<h4>{title}</h4>
-					<p>{message}</p>
-				</div>
-			);
-		case "sucess":
-			return (
-				<div className="alert alert-sucess">
-					<h4>{title}</h4>
-					<p>{message}</p>
-				</div>
-			);
-		case "danger":
-			return (
-				<div className="alert alert-danger">
-					<h4>{title}</h4>
-					<p>{message}</p>
-				</div>
-			);
-		case "warning":
-			return (
-				<div className="alert alert-warning">
-					<h4>{title}</h4>
-					<p>{message}</p>
-				</div>
-			);
+const Alert = () => {
+	const { alertState, setAlertState } = useAlert();
 
-		default:
-			return null;
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setAlertState((prevState) => ({ ...prevState, close: false }));
+		}, 7000);
+
+		return () => clearTimeout(timer);
+	}, []);
+
+	function handleClick() {
+		setAlertState({ ...alertState, close: false });
 	}
+
+	return (
+		<>
+			{alertState.close && (
+				<div className={`alert alert__${alertState.type}`}>
+					<h5 className="h5">{alertState.title}</h5>
+					<div className="divider"></div>
+					<p className="articles_body">{alertState.text}</p>
+					<div className="close" onClick={handleClick}>
+						<IconClose />
+					</div>
+					<div className="loading_bg">
+						<div className="loading"></div>
+					</div>
+				</div>
+			)}
+		</>
+	);
 };
 
 export default Alert;
