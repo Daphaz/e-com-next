@@ -1,15 +1,18 @@
 import React from "react";
 import useAuth from "../../auth/context";
 import { ProtectedRoute } from "../../auth/protectedRoutes";
-import { Layout } from "../../components";
+import { Layout, Alert } from "../../components";
+import useAlert from "../../constants/alert";
 
 const Account = () => {
+	const { alertState } = useAlert();
 	const { isAuthenticated, user } = useAuth();
 
 	return (
 		<>
 			{isAuthenticated && (
 				<Layout>
+					{alertState.close && <Alert />}
 					<section className="account container">
 						<h1 className="h1">Mon Compte</h1>
 						<div className="account_subtitle">

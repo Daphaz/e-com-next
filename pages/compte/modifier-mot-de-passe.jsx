@@ -4,6 +4,8 @@ import useAuth from "../../auth/context";
 import { formValid } from "../../helpers";
 import { Form, FormErrors, Input, Layout } from "../../components";
 import api from "../../auth/axios";
+import useAlert from "../../constants/alert";
+import Router from "next/router";
 
 const initialState = {
 	password: "",
@@ -15,8 +17,9 @@ const initialState = {
 };
 
 const ResetPassword = () => {
+	const { setAlertState } = useAlert();
 	const [state, setState] = useState(initialState);
-	const { isAuthenticated, user } = useAuth();
+	const { isAuthenticated } = useAuth();
 
 	function handleChange(e) {
 		const { name, value } = e.target;
@@ -51,12 +54,19 @@ const ResetPassword = () => {
 					});
 				}
 
-				const { data } = await api.put(`/user/update/${user.id}`, {
+				const { data } = await api.put("/user/modify-password", {
 					password,
 				});
 
 				if (data.status) {
-					console.log(data.data);
+					setAlertState({
+						close: true,
+						title: "Mot de passe ",
+						text: data.message,
+						type: "sucess",
+					});
+
+					Router.push("/compte");
 				}
 			} catch (error) {
 				const { type, message } = error.response.data;
