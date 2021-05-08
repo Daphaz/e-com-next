@@ -27,7 +27,7 @@ const Header = () => {
 								<a href="/compte">Compte</a>
 							</li>
 							<li className="header__links">
-								<a href="#">Nos produits</a>
+								<a href="/produits">Nos produits</a>
 							</li>
 							<li className="header__links">
 								<a href="#">Qui sommes nous ?</a>
@@ -64,7 +64,7 @@ const Header = () => {
 								<a href="/compte">Compte</a>
 							</li>
 							<li className="header__links">
-								<a href="#">Nos produits</a>
+								<a href="/produits">Nos produits</a>
 							</li>
 							<li className="header__links">
 								<a href="#">Qui sommes nous ?</a>
