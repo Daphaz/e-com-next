@@ -31,7 +31,7 @@
 		margin-bottom: 0.8rem;
 	}
 	&_text {
-		color: rgba(0, 0, 0, 0.3);
+		color: $neutral400;
 		font-size: 1.4rem;
 		margin-bottom: 0.8rem;
 	}
@@ -41,7 +41,7 @@
 		padding-top: 0.8rem;
 		@extend %flex_between;
 		a {
-			color: $accent300;
+			color: $accent700;
 			&:first-child {
 				text-decoration: underline;
 			}
