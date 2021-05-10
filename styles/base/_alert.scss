@@ -1,0 +1,69 @@
+.alert {
+	position: relative;
+	font-size: 1.4rem;
+	padding: 1.6rem;
+	border-radius: 5px;
+	background-color: $white;
+	margin-top: 1.2rem;
+	line-height: 1.25;
+	&__info {
+		background-color: $accent100;
+		color: $neutral900;
+	}
+	&__danger {
+		background-color: $red100;
+		color: $neutral900;
+	}
+	&__sucess {
+		background-color: $green100;
+		color: $neutral900;
+	}
+	&__warning {
+		background-color: $yellow100;
+		color: $neutral900;
+	}
+	.divider {
+		background-color: $neutral50;
+		height: 2px;
+		border-radius: 999px;
+		margin: 1rem 0;
+	}
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 1rem;
+		right: 1.6rem;
+		width: 30px;
+		height: 30px;
+		svg {
+			fill: $neutral900;
+		}
+	}
+	.loading {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.5);
+		animation: progressBar 7s ease-in-out forwards;
+		&_bg {
+			position: absolute;
+			height: 6px;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			background-color: rgba(255, 255, 255, 0.2);
+			overflow: hidden;
+		}
+	}
+}
+
+@keyframes progressBar {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}

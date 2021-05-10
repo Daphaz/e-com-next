@@ -1,9 +1,9 @@
-import "../styles/global.css";
+import "../styles/global.scss";
 import { AuthProvider } from "../auth/context";
+import { AlertProvider } from "../constants/alert";
 import Nprogress from "nprogress";
 import Router from "next/router";
 import Head from "next/head";
-import { Layout } from "../components";
 
 Router.events.on("routeChangeStart", () => {
 	Nprogress.start();
@@ -17,14 +17,18 @@ Router.events.on("routeChangeError", () => {
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<Layout>
+		<>
 			<Head>
 				<link rel="stylesheet" type="text/css" href="/nprogress.css" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta name="Description" content="E-shop node and nextjs" />
 			</Head>
 			<AuthProvider>
-				<Component {...pageProps} />
+				<AlertProvider>
+					<Component {...pageProps} />
+				</AlertProvider>
 			</AuthProvider>
-		</Layout>
+		</>
 	);
 }
 
