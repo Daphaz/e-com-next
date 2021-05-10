@@ -16,7 +16,8 @@
 @import "layout/content";
 
 //Pages
-@import "pages/auth", "pages/account";
+@import "pages/auth", "pages/account", "pages/nosProduits", "pages/product",
+	"pages/cart";
 
 //Vendor
 @import "vendor/owl.carousel";

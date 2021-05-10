@@ -20,7 +20,9 @@ export const AuthProvider = ({ children }) => {
 					const { data: user } = await api.get("/user", {
 						params: { id: userData.id },
 					});
-					if (user.status) setUser(user.data);
+					if (user.status) {
+						setUser(user.data);
+					}
 				} catch (e) {
 					if (e.response.status === 401) {
 						removeCookie("token");
@@ -32,6 +34,8 @@ export const AuthProvider = ({ children }) => {
 			setLoading(false);
 		}
 		loadUserFromCookies();
+
+		return () => loadUserFromCookies();
 	}, []);
 	const login = async (email, password) => {
 		const { data: token } = await api.post("/auth/login", {

@@ -1,4 +1,6 @@
 import cookie from "js-cookie";
+import api from "../auth/axios";
+import Router from "next/router";
 
 export const setCookie = (key, value) => {
 	if (process.browser) {
