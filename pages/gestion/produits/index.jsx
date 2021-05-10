@@ -15,6 +15,7 @@ const Produits = () => {
 		try {
 			const { data } = await api.get("/product/all");
 			if (data.status) {
+				console.log(data.data);
 				setProducts(data.data);
 			} else {
 				setProducts([]);
