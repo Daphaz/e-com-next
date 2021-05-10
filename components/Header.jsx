@@ -47,7 +47,7 @@ const Header = () => {
 								<IconUser />
 							</a>
 						)}
-						<a className="links" href="#">
+						<a className="links" href="/panier">
 							<IconShop />
 						</a>
 					</div>
@@ -84,7 +84,7 @@ const Header = () => {
 								<IconUser />
 							</a>
 						)}
-						<a className="links" href="#">
+						<a className="links" href="/panier">
 							<IconShop />
 						</a>
 					</div>
