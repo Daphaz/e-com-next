@@ -1,5 +1,6 @@
 import cookie from "js-cookie";
-import api from "./axios";
+import api from "../auth/axios";
+import Router from "next/router";
 
 export const setCookie = (key, value) => {
 	if (process.browser) {
@@ -44,24 +45,12 @@ export const redirectFromServer = (context) => {
 	}
 };
 
-export const redirectAdminFromServer = async (context) => {
+export const redirectAdminFromServer = (context) => {
 	if (context.req.headers.cookie) {
 		const token = getCookieFromServer("token", context.req);
 		if (token) {
-			api.defaults.headers.Authorization = `Bearer ${token}`;
-			try {
-				const { data } = await api.get("/auth");
-
-				if (data.status && data.data.roles !== "admin") {
-					return;
-				} else {
-					context.res.statusCode = 302;
-					context.res.setHeader("Location", "/gestion/dashboard");
-				}
-			} catch (error) {
-				console.log(error);
-				return;
-			}
+			context.res.statusCode = 302;
+			context.res.setHeader("Location", "/gestion/dashboard");
 		}
 	}
 };
