@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import useAuth from "../auth/context";
 import { redirectFromServer } from "../auth/cookies";
 import { formValid, handleChangeLogin } from "../helpers";
-import { Form, FormErrors, Input, Layout } from "../components";
+import { Form, FormErrors, Input, Layout, Alert } from "../components";
+import useAlert from "../constants/alert";
 
 const initialState = {
 	email: "",
@@ -16,6 +17,7 @@ const initialState = {
 
 const Login = () => {
 	const [state, setState] = useState(initialState);
+	const { alertState } = useAlert();
 	const { login } = useAuth();
 
 	async function formSubmit(e) {
@@ -39,6 +41,7 @@ const Login = () => {
 	}
 	return (
 		<Layout>
+			{alertState.close && <Alert />}
 			<section className="auth container">
 				<Form onSubmit={formSubmit}>
 					<h3 className="headline">Se connecter</h3>
